@@ -1,9 +1,22 @@
 {
+  "scripts": {
+    "start": "npm-run-all --parallel watch:server",
+    "start:web": "react-scripts start",
+    "start:server": "node src/server",
+    "watch:server": "nodemon --watch src/server src/server",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "cors": "2.8.4",
     "express": "4.16.3",
     "express-graphql": "0.6.12",
     "graphql": "14.0.2",
     "graphql-tag": "2.9.2"
+  },
+  "devDependencies": {
+    "nodemon": "1.18.4",
+    "npm-run-all": "4.1.3"
   }
 }
