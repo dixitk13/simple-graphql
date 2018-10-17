@@ -47,6 +47,14 @@ var queryType = new graphql.GraphQLObjectType({
   }
 });
 
-module.exports = new graphql.GraphQLSchema({
-  query: queryType
-});
+const todoQuery = {
+  todos: {
+    type: new graphql.GraphQLList(TodoType),
+    resolve: TODOs
+  }
+};
+
+module.exports = {
+  todoQuery: new graphql.GraphQLSchema({ query: todoQuery }),
+  todosRoot: TODOs
+};
