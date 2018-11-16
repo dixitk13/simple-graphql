@@ -1,4 +1,12 @@
-var graphql = require("graphql");
+const { axios } = require("axios");
+const {
+  GraphQLID,
+  GraphQLList,
+  GraphQLString,
+  GraphQLBoolean,
+  GraphQLObjectType
+} = require("graphql");
+
 const TODOs = [
   {
     id: 1446412739542,
@@ -12,49 +20,45 @@ const TODOs = [
   }
 ];
 
-var TodoType = new graphql.GraphQLObjectType({
+const returnTODOs = function() {
+  return new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      resolve(TODOs);
+    }, 4000);
+  });
+};
+
+// NOTE: can be used as a fetch too!
+// const apiResolver = function(parent, args) {
+//   return axios.get("http://some:api/").then(res => res.data);
+// };
+
+var TodoType = new GraphQLObjectType({
   name: "todo",
   fields: function() {
     return {
-      id: {
-        type: graphql.GraphQLID
-      },
-      title: {
-        type: graphql.GraphQLString
-      },
-      completed: {
-        type: graphql.GraphQLBoolean
-      }
-    };
-  }
-});
-
-var queryType = new graphql.GraphQLObjectType({
-  name: "Query",
-  fields: function() {
-    return {
-      todos: {
-        type: new graphql.GraphQLList(TodoType),
-        resolve: function() {
-          return new Promise(function(resolve, reject) {
-            setTimeout(function() {
-              resolve(TODOs);
-            }, 4000);
-          });
-        }
-      }
+      id: { type: GraphQLID },
+      title: { type: GraphQLString },
+      completed: { type: GraphQLBoolean }
     };
   }
 });
 
 const todoQuery = {
   todos: {
-    type: new graphql.GraphQLList(TodoType),
+    type: new GraphQLList(TodoType),
     resolve: TODOs
   }
 };
 
-module.exports = {
-  todoQuery: new graphql.GraphQLSchema({ query: todoQuery }),
-  todosRoot: TODOs
-};
+module.exports = new GraphQLObjectType({
+  name: "Query",
+  fields: function() {
+    return {
+      todos: {
+        type: new GraphQLList(TodoType),
+        resolve: returnTODOs
+      }
+    };
+  }
+});

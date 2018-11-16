@@ -1,26 +1,10 @@
 const express = require("express");
 const cors = require("cors");
 const graphqlHTTP = require("express-graphql");
-var graphql = require("graphql");
 
-const { todoQuery, todosRoot } = require("./src/todos");
-const { postsQuery, postsRoot, postRoot } = require("./src/posts");
+const { schema, root } = require("./schema");
 
-var schema = new graphql.GraphQLObjectType({
-  name: "Query",
-  fields: function() {
-    return {
-      todos: todoQuery,
-      posts: postsQuery
-    };
-  }
-});
-
-const root = {
-  todos: todosRoot,
-  posts: postsRoot,
-  post: postRoot
-};
+const path = require("path");
 
 const app = express();
 app.use(cors());
@@ -34,6 +18,14 @@ app.use(
   })
 );
 
+app.use(express.static("public"));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "public", "index.html"));
+});
+
 const port = process.env.PORT || 4000;
-app.listen(port);
-console.log(`Running a GraphQL API server at localhost:${port}/graphql`);
+
+app.listen(port, () =>
+  console.log(`Running a GraphQL API server at localhost:${port}/graphql`)
+);

@@ -1,19 +1,22 @@
 {
   "scripts": {
-    "start": "npm-run-all --parallel watch:server",
+    "start-1": "npm-run-all --parallel watch:server",
+    "start": "nodemon server.js",
     "start:web": "react-scripts start",
     "start:server": "node server.js",
-    "watch:server": "nodemon --watch server.js src/*",
+    "server": "nodemon --watch server.js src/*",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "cors": "2.8.4",
-    "express": "4.16.3",
-    "express-graphql": "0.6.12",
+    "express": "^4.16.3",
+    "express-graphql": "^0.6.12",
     "graphql": "14.0.2",
-    "graphql-tag": "2.9.2"
+    "graphql-tag": "2.9.2",
+    "node.js": "^0.0.0"
   },
   "devDependencies": {
     "nodemon": "1.18.4",
