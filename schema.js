@@ -1,6 +1,6 @@
 const { GraphQLSchema } = require("graphql");
 
-const { todoQuery, todosRoot } = require("./src/todos");
+const { todoRootQuery, todosRoot } = require("./src/todos");
 const { postsQuery, postsRoot, postRoot } = require("./src/posts");
 
 // var schema = new graphql.GraphQLObjectType({
@@ -20,7 +20,7 @@ const root = {
 };
 
 const schema = new GraphQLSchema({
-  query: todoQuery
+  query: todoRootQuery
 });
 
 module.exports = {

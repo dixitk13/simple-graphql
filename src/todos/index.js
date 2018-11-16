@@ -33,7 +33,8 @@ const returnTODOs = function() {
 //   return axios.get("http://some:api/").then(res => res.data);
 // };
 
-var TodoType = new GraphQLObjectType({
+// TodoType
+const TodoType = new GraphQLObjectType({
   name: "todo",
   fields: function() {
     return {
@@ -44,21 +45,14 @@ var TodoType = new GraphQLObjectType({
   }
 });
 
-const todoQuery = {
-  todos: {
-    type: new GraphQLList(TodoType),
-    resolve: TODOs
-  }
-};
-
-module.exports = new GraphQLObjectType({
-  name: "Query",
-  fields: function() {
-    return {
+module.exports = {
+  todoRootQuery: new GraphQLObjectType({
+    name: "Query",
+    fields: {
       todos: {
         type: new GraphQLList(TodoType),
         resolve: returnTODOs
       }
-    };
-  }
-});
+    }
+  })
+};

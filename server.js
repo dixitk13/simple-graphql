@@ -7,13 +7,15 @@ const { schema, root } = require("./schema");
 const path = require("path");
 
 const app = express();
+
+// Allow cross-origin
 app.use(cors());
 
 app.use(
   "/graphql",
   graphqlHTTP({
     schema,
-    rootValue: root,
+    // rootValue: root,
     graphiql: true
   })
 );
