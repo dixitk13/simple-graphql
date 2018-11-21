@@ -1,10 +1,10 @@
 {
   "scripts": {
     "start-1": "npm-run-all --parallel watch:server",
-    "start": "nodemon server.js",
+    "start": "nodemon graphql-server/server.js",
     "start:web": "react-scripts start",
-    "start:server": "node server.js",
-    "server": "nodemon --watch server.js src/*",
+    "start:server": "node graphql-server/server.js",
+    "server": "nodemon --watch graphql-server/server.js src/*",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
