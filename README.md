@@ -1,10 +1,12 @@
-# simple-graphql-server
+# simple-graphql
 
-trying a simple graphql server for "purely academic purposes" :-)
+- trying a simple graphql server for "purely academic purposes" :-)
+
+- adding a react front-end for the same on localhost:3000
 
 ### starting the application
 ```
-yarn start
+npm start
 ```
 
 ### query sample
