@@ -1,0 +1,11 @@
+.todos-view-container {
+  display: flex;
+  flex-direction: column; }
+  .todos-view-container .todos-count .value,
+  .todos-view-container .simple-counter .value {
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: 500;
+    font-size: 21px; }
+  .todos-view-container .todos-count .action-holder,
+  .todos-view-container .simple-counter .action-holder {
+    font-size: 15px; }

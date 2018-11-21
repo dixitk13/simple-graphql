@@ -1,0 +1,17 @@
+@import "../common/constant.scss";
+.todos-view-container {
+  display: flex;
+  flex-direction: column;
+
+  .todos-count,
+  .simple-counter {
+    .value {
+      color: $black-color;
+      font-weight: 500;
+      font-size: 21px;
+    }
+    .action-holder {
+      font-size: 15px;
+    }
+  }
+}
