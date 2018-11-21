@@ -6,14 +6,13 @@ import Todos from "./Todos";
 import { ApolloProvider } from "react-apollo";
 import { ApolloClient } from "apollo-boost";
 import { InMemoryCache } from "apollo-cache-inmemory";
-import { ApolloLink } from "apollo-client-preset";
+import { HttpLink } from "apollo-link-http";
 
 // Set up Cache
 const cache = new InMemoryCache();
 
 const client = new ApolloClient({
-  uri: "http://localhost:4000/graphql",
-  link: ApolloLink.from([]),
+  link: new HttpLink({ uri: "http://localhost:4000/graphql" }),
   cache: cache
 });
 

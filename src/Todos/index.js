@@ -2,21 +2,19 @@ import React, { Component } from "react";
 import TodosView from "./TodosView";
 
 import gql from "graphql-tag";
-import { Query } from "react-apollo";
 
-const TODOS_QUERY = gql`
-  query todoRootQuery {
+const todosQuery = gql`
+  query {
     todos {
       id
-      name
+      title
     }
   }
 `;
 
 class Todos extends Component {
   state = {
-    value: 0,
-    todos: []
+    value: 0
   };
 
   increment = () => this.setState(({ value }) => ({ value: value + 1 }));
@@ -27,26 +25,12 @@ class Todos extends Component {
     return (
       <TodosView
         {...this.state}
-        todos={<TodosQuery query={TODOS_QUERY} />}
+        todosQuery={todosQuery}
         decrement={this.decrement}
         increment={this.increment}
       />
     );
   }
 }
-
-const TodosQuery = ({ query }) => {
-  return (
-    <Query query={query}>
-      {(loading, error, data) => {
-        if (loading) return <div>Loading...</div>;
-        if (error) console.log(error);
-
-        console.log(data);
-        return <h1>test</h1>;
-      }}
-    </Query>
-  );
-};
 
 export default Todos;
