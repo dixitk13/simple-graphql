@@ -9,3 +9,12 @@
   .todos-view-container .todos-count .action-holder,
   .todos-view-container .simple-counter .action-holder {
     font-size: 15px; }
+  .todos-view-container .todos-count .todos-list,
+  .todos-view-container .simple-counter .todos-list {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%; }
+    .todos-view-container .todos-count .todos-list .todo-item,
+    .todos-view-container .simple-counter .todos-list .todo-item {
+      color: rgba(0, 0, 0, 0.85);
+      background: #ceabd5; }

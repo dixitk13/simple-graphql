@@ -1,17 +1,40 @@
 @import "../common/constant.scss";
 .todos-view-container {
-  display: flex;
-  flex-direction: column;
-
-  .todos-count,
-  .simple-counter {
-    .value {
+  .todos-count {
+    display: flex;
+    flex-direction: column;
+    .header {
       color: $black-color;
-      font-weight: 500;
+      font-weight: 600;
       font-size: 21px;
+      align-self: center;
     }
-    .action-holder {
-      font-size: 15px;
+    .todos-list {
+      display: flex;
+      flex-flow: column nowrap;
+      overflow: scroll;
+
+      .todo-placeholder {
+        flex: 1 1 auto;
+      }
+
+      .todo-item-container {
+        color: $black-color;
+        background: rgb(206, 171, 213);
+        display: flex;
+        align-items: baseline;
+        padding: 15px;
+        margin: 3px 6px;
+        border-radius: 3px;
+
+        .todo-title {
+          font-size: 14px;
+          flex: 5 1 90%;
+        }
+        .todo-status {
+          flex: 1 1 10%;
+        }
+      }
     }
   }
 }

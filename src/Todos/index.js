@@ -8,13 +8,14 @@ const todosQuery = gql`
     todos {
       id
       title
+      completed
     }
   }
 `;
 
 class Todos extends Component {
   state = {
-    value: 0
+    value: ""
   };
 
   increment = () => this.setState(({ value }) => ({ value: value + 1 }));

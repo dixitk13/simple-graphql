@@ -24,7 +24,7 @@ const returnTODOs = function() {
   return new Promise(function(resolve, reject) {
     setTimeout(function() {
       resolve(TODOs);
-    }, 4000);
+    }, 1000);
   });
 };
 
