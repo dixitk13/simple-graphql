@@ -7,7 +7,11 @@ const todosQuery = gql`
   query {
     todos {
       id
-      title
+      lines {
+        type
+        color
+        text
+      }
       completed
     }
   }

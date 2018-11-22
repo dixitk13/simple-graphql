@@ -1,40 +1,51 @@
 @import "../common/constant.scss";
 .todos-view-container {
-  .todos-count {
+  display: flex;
+  flex-direction: column;
+
+  .loading {
+    padding: 3px;
+  }
+
+  .header {
+    color: $black-color;
+    font-weight: 600;
+    font-size: 21px;
+    align-self: center;
+  }
+  .todos-list {
     display: flex;
-    flex-direction: column;
+    flex-flow: column nowrap;
+    overflow: scroll;
+    height: calc(100vh - 100px);
 
-    .header {
-      color: $black-color;
-      font-weight: 600;
-      font-size: 21px;
-      align-self: center;
+    .todo-placeholder {
+      flex: 1 1 auto;
     }
-    .todos-list {
+
+    .todo-item-container {
+      color: $black-color;
+      background: rgb(206, 171, 213);
       display: flex;
-      flex-flow: column nowrap;
-      overflow: scroll;
-      height: calc(100vh - 100px);
+      align-items: baseline;
+      margin: 3px 6px;
+      border-radius: 3px;
 
-      .todo-placeholder {
-        flex: 1 1 auto;
+      .todo-title {
+        font-size: 14px;
+        flex: 5 1 80%;
       }
-
-      .todo-item-container {
-        color: $black-color;
-        background: rgb(206, 171, 213);
-        display: flex;
-        align-items: baseline;
-        margin: 3px 6px;
-        border-radius: 3px;
-
-        .todo-title {
-          font-size: 14px;
-          flex: 5 1 90%;
-        }
-        .todo-status {
-          flex: 1 1 10%;
-        }
+      .todo-status {
+        flex: 1 1 10%;
+      }
+      .todo-remove {
+        flex: 1 1 5%;
+        font-weight: 600;
+        color: #bf0000;
+        //border-radius: 50%;
+        border: 1px dotted grey;
+        margin: 3px;
+        text-align: center;
       }
     }
   }

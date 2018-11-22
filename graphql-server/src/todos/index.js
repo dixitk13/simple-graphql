@@ -10,12 +10,20 @@ const {
 const TODOs = [
   {
     id: 1446412739542,
-    title: "Read emails",
+    lines: [
+      { text: "Read emails ", type: "bold" },
+      { text: "And Reply Emails ", type: "code" }
+    ],
     completed: false
   },
   {
     id: 1446412740883,
-    title: "Buy orange",
+    lines: [
+      { text: "Buy orange ", type: "color", color: "orange" },
+      { text: "Buy Banana ", type: "color", color: "yellow" },
+      { text: "Buy Plum ", type: "color", color: "red" },
+      { text: "Buy Pear ", type: "color", color: "green" }
+    ],
     completed: true
   }
 ];
@@ -39,8 +47,19 @@ const TodoType = new GraphQLObjectType({
   fields: function() {
     return {
       id: { type: GraphQLID },
-      title: { type: GraphQLString },
+      lines: { type: new GraphQLList(LinesType) },
       completed: { type: GraphQLBoolean }
+    };
+  }
+});
+
+const LinesType = new GraphQLObjectType({
+  name: "lines",
+  fields: function() {
+    return {
+      type: { type: GraphQLString },
+      color: { type: GraphQLString },
+      text: { type: GraphQLString }
     };
   }
 });

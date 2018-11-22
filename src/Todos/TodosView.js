@@ -1,16 +1,15 @@
 import React, { Fragment } from "react";
 import "./todos.styles.scss";
 
+import MarkDown from "../MarkDown";
 import { Query } from "react-apollo";
 
 export const TodosView = ({ todosQuery, onChecked, ...rest }) => {
   return (
     <div className="todos-view-container">
-      <div className="todos-count">
-        <div className="header">MarkDown TO-DOs</div>
-        <div className="todos-list">
-          <TodosList onChecked={onChecked} todosQuery={todosQuery} />
-        </div>
+      <div className="header">MarkDown TO-DOs</div>
+      <div className="todos-list">
+        <TodosList onChecked={onChecked} todosQuery={todosQuery} />
       </div>
     </div>
   );
@@ -21,7 +20,8 @@ const TodosList = ({ todosQuery, onChecked }) => {
     <Query query={todosQuery}>
       {({ loading, error, data }) => {
         if (error) console.log(error);
-        if (loading || !data) return <div>Loading...</div>;
+        if (loading || !data)
+          return <div className="todo-item-container loading">Loading...</div>;
 
         return (
           <Fragment>
@@ -40,7 +40,7 @@ const TodosList = ({ todosQuery, onChecked }) => {
   );
 };
 
-const TodoItem = ({ id, title, completed, onChecked }) => {
+const TodoItem = ({ id, lines, completed, onChecked }) => {
   return (
     <div className="todo-item-container">
       <input
@@ -49,7 +49,10 @@ const TodoItem = ({ id, title, completed, onChecked }) => {
         type="checkbox"
         checked={completed}
       />
-      <div className="todo-title">{title}</div>
+      <div className="todo-title">
+        <MarkDown lines={lines} />
+      </div>
+      <div className="todo-remove">x</div>
     </div>
   );
 };

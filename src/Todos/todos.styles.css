@@ -1,27 +1,29 @@
-.todos-view-container .todos-count {
+.todos-view-container {
   display: flex;
   flex-direction: column; }
-  .todos-view-container .todos-count .header {
+  .todos-view-container .loading {
+    padding: 3px; }
+  .todos-view-container .header {
     color: rgba(0, 0, 0, 0.85);
     font-weight: 600;
     font-size: 21px;
     align-self: center; }
-  .todos-view-container .todos-count .todos-list {
+  .todos-view-container .todos-list {
     display: flex;
     flex-flow: column nowrap;
-    overflow: scroll; }
-    .todos-view-container .todos-count .todos-list .todo-placeholder {
+    overflow: scroll;
+    height: calc(100vh - 100px); }
+    .todos-view-container .todos-list .todo-placeholder {
       flex: 1 1 auto; }
-    .todos-view-container .todos-count .todos-list .todo-item-container {
+    .todos-view-container .todos-list .todo-item-container {
       color: rgba(0, 0, 0, 0.85);
       background: #ceabd5;
       display: flex;
       align-items: baseline;
-      padding: 15px;
       margin: 3px 6px;
       border-radius: 3px; }
-      .todos-view-container .todos-count .todos-list .todo-item-container .todo-title {
+      .todos-view-container .todos-list .todo-item-container .todo-title {
         font-size: 14px;
         flex: 5 1 90%; }
-      .todos-view-container .todos-count .todos-list .todo-item-container .todo-status {
+      .todos-view-container .todos-list .todo-item-container .todo-status {
         flex: 1 1 10%; }
