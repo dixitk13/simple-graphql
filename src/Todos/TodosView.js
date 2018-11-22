@@ -3,20 +3,20 @@ import "./todos.styles.scss";
 
 import { Query } from "react-apollo";
 
-export const TodosView = ({ todosQuery, ...rest }) => {
+export const TodosView = ({ todosQuery, onChecked, ...rest }) => {
   return (
     <div className="todos-view-container">
       <div className="todos-count">
         <div className="header">MarkDown TO-DOs</div>
         <div className="todos-list">
-          <TodosList todosQuery={todosQuery} />
+          <TodosList onChecked={onChecked} todosQuery={todosQuery} />
         </div>
       </div>
     </div>
   );
 };
 
-const TodosList = ({ todosQuery }) => {
+const TodosList = ({ todosQuery, onChecked }) => {
   return (
     <Query query={todosQuery}>
       {({ loading, error, data }) => {
@@ -25,10 +25,14 @@ const TodosList = ({ todosQuery }) => {
 
         return (
           <Fragment>
-            <div className="todo-placeholder" />
             {data.todos.map((todo, index) => (
-              <TodoItem key={`${todo.id}-${index}`} {...todo} />
+              <TodoItem
+                key={`${todo.id}-${index}`}
+                onChecked={onChecked}
+                {...todo}
+              />
             ))}
+            <div className="todo-placeholder" />
           </Fragment>
         );
       }}
@@ -36,24 +40,18 @@ const TodosList = ({ todosQuery }) => {
   );
 };
 
-const TodoItem = ({ id, title, completed }) => {
+const TodoItem = ({ id, title, completed, onChecked }) => {
   return (
     <div className="todo-item-container">
-      <input className="todo-status" type="checkbox" checked={completed} />
+      <input
+        onChange={() => onChecked(id, completed)}
+        className="todo-status"
+        type="checkbox"
+        checked={completed}
+      />
       <div className="todo-title">{title}</div>
     </div>
   );
 };
 
-const Counter = ({ value, increment, decrement }) => {
-  return (
-    <div className="simple-counter">
-      <div className="value">{value}</div>
-      <div className="action-holder">
-        <button onClick={increment}>increment</button>
-        <button onClick={decrement}>decrease</button>
-      </div>
-    </div>
-  );
-};
 export default TodosView;

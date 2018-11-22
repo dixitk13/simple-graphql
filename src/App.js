@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 // import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Todos from "./Todos";
+import Box from "./Box";
 // import ProtectRoute from "./protectRoute";
 
 import { ApolloProvider } from "react-apollo";
 import { ApolloClient } from "apollo-boost";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { HttpLink } from "apollo-link-http";
+import "./app.styles.scss";
 
 // Set up Cache
 const cache = new InMemoryCache();
@@ -20,7 +22,10 @@ class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
-        <Todos />
+        <div className="app-container">
+          <Todos />
+          <Box />
+        </div>
       </ApolloProvider>
     );
   }

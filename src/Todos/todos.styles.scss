@@ -3,6 +3,7 @@
   .todos-count {
     display: flex;
     flex-direction: column;
+
     .header {
       color: $black-color;
       font-weight: 600;
@@ -13,6 +14,7 @@
       display: flex;
       flex-flow: column nowrap;
       overflow: scroll;
+      height: calc(100vh - 100px);
 
       .todo-placeholder {
         flex: 1 1 auto;
@@ -23,7 +25,6 @@
         background: rgb(206, 171, 213);
         display: flex;
         align-items: baseline;
-        padding: 15px;
         margin: 3px 6px;
         border-radius: 3px;
 

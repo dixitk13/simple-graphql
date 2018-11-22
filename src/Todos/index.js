@@ -18,17 +18,16 @@ class Todos extends Component {
     value: ""
   };
 
-  increment = () => this.setState(({ value }) => ({ value: value + 1 }));
-
-  decrement = () => this.setState(({ value }) => ({ value: value - 1 }));
+  onChecked = () => {
+    // TODO: under-construction!
+  };
 
   render() {
     return (
       <TodosView
         {...this.state}
         todosQuery={todosQuery}
-        decrement={this.decrement}
-        increment={this.increment}
+        onChecked={this.onChecked}
       />
     );
   }

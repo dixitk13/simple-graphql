@@ -1,0 +1,23 @@
+@import "../common/constant.scss";
+.box-view-container {
+  display: flex;
+  flex-flow: row wrap;
+  border: 0.5px solid lightblue;
+  margin: 3px 6px;
+  padding: 3px;
+  border-radius: 3px;
+
+  .line {
+    font-weight: 400;
+  }
+
+  .bold-line {
+    font-weight: 600;
+  }
+
+  .text-box {
+    &:focus {
+      outline: none;
+    }
+  }
+}
