@@ -24,6 +24,13 @@
       border-radius: 3px; }
       .todos-view-container .todos-list .todo-item-container .todo-title {
         font-size: 14px;
-        flex: 5 1 90%; }
+        flex: 5 1 80%; }
       .todos-view-container .todos-list .todo-item-container .todo-status {
         flex: 1 1 10%; }
+      .todos-view-container .todos-list .todo-item-container .todo-remove {
+        flex: 1 1 5%;
+        font-weight: 600;
+        color: #bf0000;
+        border: 1px dotted grey;
+        margin: 3px;
+        text-align: center; }

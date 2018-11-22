@@ -20,8 +20,7 @@ const TodosList = ({ todosQuery, onChecked }) => {
     <Query query={todosQuery}>
       {({ loading, error, data }) => {
         if (error) console.log(error);
-        if (loading || !data)
-          return <div className="todo-item-container loading">Loading...</div>;
+        if (loading || !data) return <div className="loading">Loading...</div>;
 
         return (
           <Fragment>
