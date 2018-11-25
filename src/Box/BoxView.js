@@ -1,15 +1,25 @@
 import React from "react";
 import "./box.styles.scss";
+
 import MarkDown from "../MarkDown";
-const BoxView = ({ lines, currentLine, updateCurrentLine }) => {
+
+const BoxView = ({ lines, currentLine, addTodo, updateCurrentLine }) => {
   return (
     <div className="box-view-container">
-      <MarkDown lines={lines} />
+      <div className="input-box">
+        <MarkDown lines={lines} />
+        <input
+          className="text-box"
+          type="text"
+          value={currentLine}
+          onChange={updateCurrentLine}
+        />
+      </div>
       <input
-        className="text-box"
-        type="text"
-        value={currentLine}
-        onChange={updateCurrentLine}
+        type="button"
+        className="add-button"
+        value="Add"
+        onClick={addTodo}
       />
     </div>
   );

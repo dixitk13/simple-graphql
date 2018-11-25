@@ -3,7 +3,10 @@ import BoxView from "./BoxView";
 
 class Box extends Component {
   state = {
-    lines: [],
+    lines: [
+      { text: "default text" },
+      { text: "some more default text", type: "bold" }
+    ],
     currentLine: ""
   };
 
@@ -11,9 +14,17 @@ class Box extends Component {
     console.log(event);
   };
 
+  addTodo = event => {
+    console.log("add todo");
+  };
+
   render() {
     return (
-      <BoxView {...this.state} updateCurrentLine={this.updateCurrentLine} />
+      <BoxView
+        {...this.state}
+        updateCurrentLine={this.updateCurrentLine}
+        addTodo={this.addTodo}
+      />
     );
   }
 }

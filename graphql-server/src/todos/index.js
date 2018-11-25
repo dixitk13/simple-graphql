@@ -12,7 +12,9 @@ const TODOs = [
     id: 1446412739542,
     lines: [
       { text: "Read emails ", type: "bold" },
-      { text: "And Reply Emails ", type: "code" }
+      { text: "And Reply Emails ", type: "code" },
+      { text: "And again Read emails. " },
+      { text: "Sit back and drink coffe now" }
     ],
     completed: false
   },

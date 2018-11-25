@@ -1,13 +1,13 @@
-import { Fragment } from "react";
 import React from "react";
+import "./markdown.styles.scss";
 
 const MarkDownLines = ({ lines }) => {
   return (
-    <Fragment>
+    <div className="mark-down-lines-container">
       {lines.map((line, index) => (
         <RenderLine key={`line-${index}`} type={line.type} {...line} />
       ))}
-    </Fragment>
+    </div>
   );
 };
 
@@ -29,7 +29,11 @@ const Line = ({ text }) => {
 };
 
 const CodeLine = ({ text }) => {
-  return <code>{text}</code>;
+  return (
+    <span className="code-line">
+      <code>{text}</code>
+    </span>
+  );
 };
 
 const BoldLine = ({ text }) => {
