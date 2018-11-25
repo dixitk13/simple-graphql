@@ -35,18 +35,24 @@
 
       .todo-title {
         font-size: 14px;
-        flex: 5 1 80%;
+        flex: 7 1 70%;
       }
       .todo-status {
         flex: 1 1 10%;
       }
-      .todo-remove {
+      .todo-remove,
+      .todo-detail {
         flex: 1 1 5%;
-        font-weight: 600;
-        color: #002bff;
+
         border: 1px dotted grey;
         margin: 3px;
         text-align: center;
+      }
+      .todo-complete {
+        color: #65cc37;
+      }
+      .todo-incomplete {
+        color: #184aff;
       }
     }
   }

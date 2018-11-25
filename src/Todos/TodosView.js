@@ -1,8 +1,11 @@
 import React, { Fragment } from "react";
-import "./todos.styles.scss";
+import { Link } from "react-router-dom";
+import classNames from "classnames";
 
 import MarkDown from "../MarkDown";
 import { Query } from "react-apollo";
+
+import "./todos.styles.scss";
 
 export const TodosView = ({ todosQuery, onChecked, ...rest }) => {
   return (
@@ -51,7 +54,17 @@ const TodoItem = ({ id, lines, completed, onChecked }) => {
       <div className="todo-title">
         <MarkDown lines={lines} />
       </div>
-      <div className="todo-remove">x</div>
+      <Link to={`/todos/${id}`} className="todo-detail">
+        i
+      </Link>
+      <input
+        type="button"
+        value="x"
+        className={`todo-remove ${classNames({
+          "todo-complete": completed,
+          "todo-incomplete": !completed
+        })}`}
+      />
     </div>
   );
 };
