@@ -88,6 +88,7 @@ module.exports = {
         type: TodoType,
         args: {
           id: { type: new GraphQLNonNull(GraphQLInt) }
+          // id: { type: GraphQLInt }
         },
         resolve(parent, args) {
           return returnTODO(args.id);
