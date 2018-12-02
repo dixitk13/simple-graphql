@@ -3,13 +3,15 @@ const {
   GraphQLID,
   GraphQLList,
   GraphQLString,
+  GraphQLInt,
   GraphQLBoolean,
-  GraphQLObjectType
+  GraphQLObjectType,
+  GraphQLNonNull
 } = require("graphql");
 
 const TODOs = [
   {
-    id: 1446412739542,
+    id: 1,
     lines: [
       { text: "Read emails ", type: "bold" },
       { text: "And Reply Emails ", type: "code" },
@@ -19,7 +21,7 @@ const TODOs = [
     completed: false
   },
   {
-    id: 1446412740883,
+    id: 2,
     lines: [
       { text: "Buy orange ", type: "color", color: "orange" },
       { text: "Buy Banana ", type: "color", color: "yellow" },
@@ -34,6 +36,14 @@ const returnTODOs = function() {
   return new Promise(function(resolve, reject) {
     setTimeout(function() {
       resolve(TODOs);
+    }, 1000);
+  });
+};
+
+const returnTODO = function(id) {
+  return new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      resolve(TODOs.find(x => x.id === id));
     }, 1000);
   });
 };
@@ -73,6 +83,15 @@ module.exports = {
       todos: {
         type: new GraphQLList(TodoType),
         resolve: returnTODOs
+      },
+      todo: {
+        type: TodoType,
+        args: {
+          id: { type: new GraphQLNonNull(GraphQLInt) }
+        },
+        resolve(parent, args) {
+          return returnTODO(args.id);
+        }
       }
     }
   })
