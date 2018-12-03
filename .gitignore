@@ -3,6 +3,10 @@
 node_modules/
 .idea/
 
+# using node-sass/SCSS
+src/**/*.css
+src/*.css
+
 # dependencies
 /node_modules
 

@@ -1,0 +1,26 @@
+@import "../common/constant.scss";
+.box-view-container {
+  display: flex;
+  flex-flow: row wrap;
+
+  .input-box {
+    border: 0.5px solid lightblue;
+    margin: 3px 6px;
+    padding: 3px;
+    border-radius: 3px;
+    flex: 5 1 auto;
+    .text-box {
+      border: none;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .add-button {
+    border: 0.5px solid lightblue;
+    margin: 3px 6px;
+    padding: 3px;
+    border-radius: 3px;
+    flex: 1 1 auto;
+  }
+}

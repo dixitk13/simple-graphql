@@ -7,27 +7,31 @@ const todosQuery = gql`
   query {
     todos {
       id
-      title
+      lines {
+        type
+        color
+        text
+      }
+      completed
     }
   }
 `;
 
 class Todos extends Component {
   state = {
-    value: 0
+    value: ""
   };
 
-  increment = () => this.setState(({ value }) => ({ value: value + 1 }));
-
-  decrement = () => this.setState(({ value }) => ({ value: value - 1 }));
+  onChecked = () => {
+    // TODO: under-construction!
+  };
 
   render() {
     return (
       <TodosView
         {...this.state}
         todosQuery={todosQuery}
-        decrement={this.decrement}
-        increment={this.increment}
+        onChecked={this.onChecked}
       />
     );
   }
