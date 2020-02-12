@@ -17,6 +17,7 @@ import { HttpLink } from "apollo-link-http";
 
 import "./app.styles.scss";
 
+
 // Set up Cache
 const cache = new InMemoryCache();
 
@@ -44,9 +45,11 @@ class App extends Component {
 }
 const TodosList = () => {
   return (
+
     <Fragment>
       <Todos /> <Box />
     </Fragment>
+    
   );
 };
 

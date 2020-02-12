@@ -5,7 +5,7 @@ import gql from "graphql-tag";
 
 const todoDetailQuery = gql`
   query($id: Int!) {
-    todo(id: $id) {
+    findTodo(id: $id) {
       id
       lines {
         type
