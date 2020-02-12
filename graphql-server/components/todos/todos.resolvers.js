@@ -4,6 +4,7 @@ const LineType = {
   CODE: "CODE",
   NONE: "NONE"
 };
+
 const TODOs = [
   {
     id: 1,

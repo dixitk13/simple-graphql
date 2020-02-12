@@ -2,19 +2,9 @@ import path from "path";
 import graphqlHTTP from "express-graphql";
 import express from "express";
 import cors from "cors";
-import { buildSchema } from "graphql";
 
-// Singleton
-// import { makeExecutableSchema } from "graphql-tools";
-// import { typeDefs, resolvers } from "./components/posts";
-// const schema = makeExecutableSchema({ typeDefs, resolvers });
+import { schema, typeDefs, resolvers } from "./root";
 
-import { typeDefs } from "./root/root.types";
-console.log(">>: typeDefs", typeDefs);
-import { rootValue } from "./root/root.resolvers";
-console.log(">>: rootValue", rootValue);
-
-const schema = buildSchema(typeDefs);
 const app = express();
 
 // Allow cross-origin
@@ -24,7 +14,7 @@ app.use(
   "/graphql",
   graphqlHTTP({
     schema,
-    rootValue,
+    rootValue: resolvers,
     graphiql: true
   })
 );

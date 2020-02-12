@@ -1,6 +1,3 @@
-// import { makeExecutableSchema } from "graphql-tools";
-// import { resolvers } from "./posts.resolvers";
-
 export const typeDefs = `
   type Query {
     getPosts: [Post]
@@ -13,5 +10,3 @@ export const typeDefs = `
     body: String
   }
 `;
-
-// export const schema = makeExecutableSchema({ typeDefs, resolvers });

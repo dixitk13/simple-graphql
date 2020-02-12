@@ -1,6 +1,3 @@
-// import { resolvers } from "./todos.resolvers";
-// import { makeExecutableSchema } from "graphql-tools";
-
 export const typeDefs = `
   type Todo {
     id: ID
@@ -17,6 +14,8 @@ export const typeDefs = `
 
   type Lines {
     type: LineType
+    color: String
+    text: String
   }
 
   type Query {
@@ -24,5 +23,3 @@ export const typeDefs = `
     findTodo(id: ID!): Todo
   }
 `;
-
-// export const schema = makeExecutableSchema({ typeDefs, resolvers });
