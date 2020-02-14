@@ -7,7 +7,7 @@ const LineType = {
 
 const TODOs = [
   {
-    id: 1,
+    id: "1",
     lines: [
       { text: "Read emails ", type: LineType.BOLD },
       { text: "And Reply Emails ", type: LineType.CODE },
@@ -17,7 +17,7 @@ const TODOs = [
     completed: false
   },
   {
-    id: 2,
+    id: "2",
     lines: [
       { text: "Buy orange ", type: LineType.COLOR, color: "orange" },
       { text: "Buy Banana ", type: LineType.COLOR, color: "yellow" },
@@ -36,7 +36,7 @@ const findAllTodos = () => {
   });
 };
 
-const findTodo = id => {
+const findTodo = (_, { id }) => {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve(TODOs.find(x => x.id === id));

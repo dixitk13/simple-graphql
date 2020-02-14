@@ -1,33 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import TodoDetailView from "./TodoDetailView";
+import { useParams } from "react-router-dom";
 
-import gql from "graphql-tag";
+import { todoDetailQuery } from "./todoDetail.graphql";
 
-const todoDetailQuery = gql`
-  query($id: Int!) {
-    findTodo(id: $id) {
-      id
-      lines {
-        type
-        color
-        text
-      }
-      completed
-    }
-  }
-`;
+const TodoDetail = () => {
+  const { id } = useParams();
 
-class TodoDetail extends Component {
-  render() {
-    const { id } = this.props.match.params;
-    return (
-      <TodoDetailView
-        {...this.state}
-        id={parseInt(id)}
-        todoDetailQuery={todoDetailQuery}
-      />
-    );
-  }
-}
+  return <TodoDetailView id={parseInt(id)} todoDetailQuery={todoDetailQuery} />;
+};
 
 export default TodoDetail;
