@@ -1,58 +1,58 @@
 @import "../common/constant.scss";
+
 .todos-view-container {
   display: flex;
   flex-direction: column;
-
-  .header {
-    color: $black-color;
-    font-weight: 600;
-    font-size: 21px;
-    align-self: center;
-  }
 
   .todos-list {
     display: flex;
     flex-flow: column nowrap;
     overflow: scroll;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 210px);
     justify-content: center;
 
-    .loading {
-      align-self: center;
-    }
+    // .loading {
+    //   align-self: center;
+    // }
 
     .todo-placeholder {
       flex: 1 1 auto;
     }
 
     .todo-item-container {
-      color: $black-color;
-      background: rgba(0, 0, 0, 0.05);
       display: flex;
       align-items: baseline;
-      margin: 3px 6px;
-      border-radius: 3px;
+
+      margin: 6px 9px;
+      padding: $g-low-padding;
+      border-radius: $border-radius;
+
+      color: $black-85;
+      background: rgba(0, 0, 0, 0.05);
 
       .todo-title {
-        font-size: 14px;
         flex: 7 1 70%;
+        font-size: $g-font-size;
       }
       .todo-status {
-        flex: 1 1 10%;
+        flex: 1 1 auto;
+        display: flex;
+        cursor: pointer;
+        justify-content: center;
       }
-      .todo-remove,
+      .todo-actions,
       .todo-detail {
+        display: flex;
+        justify-content: space-around;
         flex: 1 1 5%;
 
-        border: 1px dotted grey;
         margin: 3px;
         text-align: center;
-      }
-      .todo-complete {
-        color: #65cc37;
-      }
-      .todo-incomplete {
-        color: #184aff;
+
+        .view,
+        .remove {
+          @include hover-state();
+        }
       }
     }
   }

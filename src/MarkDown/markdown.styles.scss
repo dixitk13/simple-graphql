@@ -5,7 +5,11 @@
   // update to have the input box, add button and markdown
   // container in the same line
 
-  //display: inline-block;
+  display: flex;
+
+  div {
+    margin: 3px;
+  }
 
   .line {
     font-weight: 400;
@@ -17,5 +21,19 @@
 
   .code-line {
     display: block;
+  }
+
+  // TODO: colors
+  .RED {
+    color: red;
+  }
+  .YELLOW {
+    color: yellow;
+  }
+  .GREEN {
+    color: green;
+  }
+  .ORANGE {
+    color: orange;
   }
 }

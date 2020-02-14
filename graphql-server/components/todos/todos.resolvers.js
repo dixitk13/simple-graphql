@@ -1,9 +1,4 @@
-const LineType = {
-  COLOR: "COLOR",
-  BOLD: "BOLD",
-  CODE: "CODE",
-  NONE: "NONE"
-};
+import { LineType, Colors } from "../../../super-constants";
 
 const TODOs = [
   {
@@ -19,10 +14,10 @@ const TODOs = [
   {
     id: "2",
     lines: [
-      { text: "Buy orange ", type: LineType.COLOR, color: "orange" },
-      { text: "Buy Banana ", type: LineType.COLOR, color: "yellow" },
-      { text: "Buy Plum ", type: LineType.COLOR, color: "red" },
-      { text: "Buy Pear ", type: LineType.COLOR, color: "green" }
+      { text: "Buy orange ", type: LineType.COLOR, color: Colors.ORANGE },
+      { text: "Buy Banana ", type: LineType.COLOR, color: Colors.YELLOW },
+      { text: "Buy Plum ", type: LineType.COLOR, color: Colors.RED },
+      { text: "Buy Pear ", type: LineType.COLOR, color: Colors.GREEN }
     ],
     completed: true
   }
