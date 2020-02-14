@@ -1,10 +1,9 @@
-const express = require("express");
-const cors = require("cors");
-const graphqlHTTP = require("express-graphql");
+import path from "path";
+import graphqlHTTP from "express-graphql";
+import express from "express";
+import cors from "cors";
 
-const { schema, root } = require("./schema");
-
-const path = require("path");
+import { schema, typeDefs, resolvers } from "./root";
 
 const app = express();
 
@@ -15,14 +14,14 @@ app.use(
   "/graphql",
   graphqlHTTP({
     schema,
-    // rootValue: root,
+    rootValue: resolvers,
     graphiql: true
   })
 );
 
 app.use(express.static("public"));
 
-app.get("*", (req, res) => {
+app.get("*", (_, res) => {
   res.sendFile(path.resolve(__dirname, "public", "index.html"));
 });
 

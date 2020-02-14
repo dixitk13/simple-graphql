@@ -23,11 +23,13 @@ const TodosList = ({ todosQuery, onChecked }) => {
     <Query query={todosQuery}>
       {({ loading, error, data }) => {
         if (error) console.log(error);
-        if (loading || !data) return <div className="loading">Loading...</div>;
+        if (loading || !data || !data.findAllTodos)
+          return <div className="loading">Loading...</div>;
 
+        const { findAllTodos: todos } = data;
         return (
           <Fragment>
-            {data.todos.map((todo, index) => (
+            {todos.map((todo, index) => (
               <TodoItem
                 key={`${todo.id}-${index}`}
                 onChecked={onChecked}

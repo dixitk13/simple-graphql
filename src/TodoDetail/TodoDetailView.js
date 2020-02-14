@@ -1,15 +1,16 @@
 import React from "react";
-import "./tododetail.styles.scss";
+import "./todoDetail.styles.scss";
 import { Query } from "react-apollo";
 import MarkDownView from "../MarkDown";
 
-const TodoDetail = ({ id, todoDetailQuery }) => {
-  console.log("todo detail ", typeof id, id);
+const TodoDetailView = ({ id, todoDetailQuery }) => {
   return (
     <Query query={todoDetailQuery} variables={{ id }}>
       {({ loading, error, data }) => {
         if (error) console.log(error);
-        if (loading || !data) return <div className="">Loading...</div>;
+        if (loading || !data || !data.todo)
+          return <div className="">Loading...</div>;
+
         const { todo } = data;
         return (
           <div className="todoDetail-view-container">
@@ -23,4 +24,4 @@ const TodoDetail = ({ id, todoDetailQuery }) => {
   );
 };
 
-export default TodoDetail;
+export default TodoDetailView;

@@ -1,21 +1,6 @@
 import React, { Component } from "react";
 import TodosView from "./TodosView";
-
-import gql from "graphql-tag";
-
-const todosQuery = gql`
-  query {
-    todos {
-      id
-      lines {
-        type
-        color
-        text
-      }
-      completed
-    }
-  }
-`;
+import { findAllTodos } from "./todos.graphql";
 
 class Todos extends Component {
   state = {
@@ -30,7 +15,7 @@ class Todos extends Component {
     return (
       <TodosView
         {...this.state}
-        todosQuery={todosQuery}
+        todosQuery={findAllTodos}
         onChecked={this.onChecked}
       />
     );

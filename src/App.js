@@ -45,7 +45,8 @@ class App extends Component {
 const TodosList = () => {
   return (
     <Fragment>
-      <Todos /> <Box />
+      <Todos />
+      <Box />
     </Fragment>
   );
 };
