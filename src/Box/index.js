@@ -15,7 +15,7 @@ class Box extends Component {
   };
 
   addTodo = event => {
-    console.log("add todo");
+    console.log("add todo ", event);
   };
 
   render() {

@@ -1,16 +1,15 @@
-import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
-import classNames from "classnames";
+import React from "react";
 
-import MarkDown from "../MarkDown";
+import { TodoItemView } from "./TodoItem";
 import { Query } from "react-apollo";
 
 import "./todos.styles.scss";
+import { Spinner, Header } from "../shared";
 
-export const TodosView = ({ todosQuery, onChecked, ...rest }) => {
+export const TodosView = ({ todosQuery, onChecked }) => {
   return (
     <div className="todos-view-container">
-      <div className="header">MarkDown TO-DOs</div>
+      <Header text="MarkDown TO-DOs" />
       <div className="todos-list">
         <TodosList onChecked={onChecked} todosQuery={todosQuery} />
       </div>
@@ -23,51 +22,24 @@ const TodosList = ({ todosQuery, onChecked }) => {
     <Query query={todosQuery}>
       {({ loading, error, data }) => {
         if (error) console.log(error);
-        if (loading || !data || !data.findAllTodos)
-          return <div className="loading">Loading...</div>;
+        if (loading || !data || !data.findAllTodos) return <Spinner />;
 
         const { findAllTodos: todos } = data;
+
         return (
-          <Fragment>
+          <>
             {todos.map((todo, index) => (
-              <TodoItem
+              <TodoItemView
                 key={`${todo.id}-${index}`}
                 onChecked={onChecked}
                 {...todo}
               />
             ))}
             <div className="todo-placeholder" />
-          </Fragment>
+          </>
         );
       }}
     </Query>
-  );
-};
-
-const TodoItem = ({ id, lines, completed, onChecked }) => {
-  return (
-    <div className="todo-item-container">
-      <input
-        onChange={() => onChecked(id, completed)}
-        className="todo-status"
-        type="checkbox"
-        checked={completed}
-      />
-      <div className="todo-title">
-        <MarkDown lines={lines} />
-      </div>
-      <Link to={`/todos/${id}`} className="todo-detail">
-        i
-      </Link>
-      <input
-        type="button"
-        value="x"
-        className={`todo-remove ${classNames({
-          "todo-complete": completed,
-          "todo-incomplete": !completed
-        })}`}
-      />
-    </div>
   );
 };
 

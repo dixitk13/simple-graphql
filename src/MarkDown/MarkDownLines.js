@@ -25,23 +25,23 @@ const RenderLine = ({ type, ...rest }) => {
 };
 
 const Line = ({ text }) => {
-  return <span className="line">{text}</span>;
+  return <div className="line">{text}</div>;
 };
 
 const CodeLine = ({ text }) => {
   return (
-    <span className="code-line">
+    <div className="code-line">
       <code>{text}</code>
-    </span>
+    </div>
   );
 };
 
 const BoldLine = ({ text }) => {
-  return <span className="bold-line">{text}</span>;
+  return <div className="bold-line">{text}</div>;
 };
 
 const ColorLine = ({ text, color }) => {
-  return <span style={{ color }}>{text}</span>;
+  return <div style={{ color }}>{text}</div>;
 };
 
 export default MarkDownLines;
