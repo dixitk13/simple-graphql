@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import BoxView from "./BoxView";
 
-class Box extends Component {
-  state = {
+const Box = () => {
+  const defaultLines = {
     lines: [
       { text: "default text" },
       { text: "some more default text", type: "bold" }
@@ -18,15 +18,13 @@ class Box extends Component {
     console.log("add todo ", event);
   };
 
-  render() {
-    return (
-      <BoxView
-        {...this.state}
-        updateCurrentLine={this.updateCurrentLine}
-        addTodo={this.addTodo}
-      />
-    );
-  }
-}
+  return (
+    <BoxView
+      {...defaultLines}
+      updateCurrentLine={this.updateCurrentLine}
+      addTodo={this.addTodo}
+    />
+  );
+};
 
 export default Box;

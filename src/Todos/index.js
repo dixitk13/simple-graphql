@@ -1,12 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 
 import TodosView from "./TodosView";
 import { findAllTodos } from "./todos.graphql";
 
-class Todos extends Component {
-  state = {
-    value: ""
-  };
+const Todos = () => {
+  const [value, _] = useState('');
 
   onChecked = () => {
     // TODO: under-construction!
@@ -15,7 +13,7 @@ class Todos extends Component {
   render() {
     return (
       <TodosView
-        {...this.state}
+        value={value}
         todosQuery={findAllTodos}
         onChecked={this.onChecked}
       />
