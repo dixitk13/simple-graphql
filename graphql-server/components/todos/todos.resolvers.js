@@ -1,47 +1,52 @@
-import { LineType, Colors } from "../../../super-constants";
+import { todos as constantTodos } from "./fakeTodos";
+import * as shortid from "shortid";
 
-const TODOs = [
-  {
-    id: "1",
-    lines: [
-      { text: "Read emails ", type: LineType.BOLD },
-      { text: "And Reply Emails ", type: LineType.CODE },
-      { text: "And again Read emails. " },
-      { text: "Sit back and drink coffe now" }
-    ],
-    completed: false
-  },
-  {
-    id: "2",
-    lines: [
-      { text: "Buy orange ", type: LineType.COLOR, color: Colors.ORANGE },
-      { text: "Buy Banana ", type: LineType.COLOR, color: Colors.YELLOW },
-      { text: "Buy Plum ", type: LineType.COLOR, color: Colors.RED },
-      { text: "Buy Pear ", type: LineType.COLOR, color: Colors.GREEN }
-    ],
-    completed: true
-  }
-];
+// allow mutation w/ let!
+let todos = constantTodos;
 
-const findAllTodos = () => {
+const myPromise = retVal => {
   return new Promise(resolve => {
     setTimeout(() => {
-      resolve(TODOs);
+      resolve(retVal);
     }, 1000);
   });
 };
 
+const findAllTodos = () => {
+  return myPromise(todos);
+};
+
 const findTodo = (_, { id }) => {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve(TODOs.find(x => x.id === id));
-    }, 1000);
-  });
+  return myPromise(todos.find(x => x.id === id));
+};
+
+const addTodo = (_, { todo }) => {
+  const newTodo = createNewTodo(todo);
+  todos = [...todos, newTodo];
+  return myPromise(newTodo);
+};
+
+const createNewTodo = todo => {
+  return {
+    id: shortid.generate(),
+    lines: todo.lines,
+    completed: todo.completed
+  };
+};
+
+/** TODO: need to improve this! */
+const updateTodo = (_, { todo }) => {
+  todos = todos.map(x => (x.id === todo.id ? { ...x, ...todo } : x));
+  return myPromise(todo);
 };
 
 export const resolvers = {
   Query: {
     findAllTodos,
     findTodo
+  },
+  Mutation: {
+    addTodo,
+    updateTodo
   }
 };

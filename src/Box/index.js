@@ -1,28 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import BoxView from "./BoxView";
 
-const Box = () => {
-  const defaultLines = {
-    lines: [
-      { text: "default text" },
-      { text: "some more default text", type: "bold" }
-    ],
-    currentLine: ""
-  };
+const defaultState = {
+  lines: [
+    { text: "default text" },
+    { text: "some more default text", type: "bold" }
+  ]
+};
 
-  updateCurrentLine = event => {
+const Box = () => {
+  const [lines, setLines] = useState(defaultState);
+
+  const [newLines, setNewLines] = useState([]);
+
+  const updateCurrentLine = event => {
     console.log(event);
   };
 
-  addTodo = event => {
+  const addTodo = event => {
     console.log("add todo ", event);
   };
 
   return (
     <BoxView
-      {...defaultLines}
-      updateCurrentLine={this.updateCurrentLine}
-      addTodo={this.addTodo}
+      {...lines}
+      updateCurrentLine={updateCurrentLine}
+      addTodo={addTodo}
     />
   );
 };
