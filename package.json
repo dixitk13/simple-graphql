@@ -10,8 +10,8 @@
   "scripts": {
     "start": "npm-run-all -p build-css graphql-server start-js",
     "start-js": "react-scripts start",
-    "graphql-server": "nodemon graphql-server/server.js --exec babel-node -e js",
-    "server": "nodemon --watch graphql-server/server.js src/*",
+    "graphql-server": "nodemon src/graphql-server/server.js --exec babel-node -e js",
+    "server": "nodemon --watch src/graphql-server/server.js src/*",
     "test": "react-scripts test --env=jsdom",
     "build-css": "node-sass src/ -o src/"
   },

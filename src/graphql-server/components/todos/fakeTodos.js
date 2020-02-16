@@ -1,4 +1,4 @@
-import { LineType, Colors } from "../../../super-constants";
+import { LineType, Colors } from "../../../constants";
 
 export let todos = [
   {
