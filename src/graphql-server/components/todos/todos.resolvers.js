@@ -8,7 +8,7 @@ const myPromise = retVal => {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve(retVal);
-    }, 1000);
+    }, 700);
   });
 };
 

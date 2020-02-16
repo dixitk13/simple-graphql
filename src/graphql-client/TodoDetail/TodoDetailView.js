@@ -1,10 +1,11 @@
 import React from "react";
 import "./todoDetail.styles.scss";
 
+import { Link } from "react-router-dom";
 import { Query } from "react-apollo";
 
 import MarkDownView from "../MarkDown";
-import { Spinner, Completed, Header } from "../shared";
+import { Spinner, Completed, Header, Back } from "../shared";
 
 const TodoDetailView = ({ id, todoDetailQuery }) => {
   return (
@@ -19,15 +20,15 @@ const TodoDetailView = ({ id, todoDetailQuery }) => {
           return (
             <>
               <Header text="TODO Detail" />
+              <Completed flag={completed} />
               <MarkDownView lines={lines} />
-              <div className="date">
-                <Completed flag={completed} />
-                Complete: {`${completed}`}
-              </div>
             </>
           );
         }}
       </Query>
+      <Link className="back-btn" to={`/todos`}>
+        <Back />
+      </Link>
     </div>
   );
 };

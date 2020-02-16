@@ -1,18 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 import TodosView from "./TodosView";
 import { findAllTodos } from "./todos.graphql";
 
 const Todos = () => {
-  const [value] = useState("");
-
-  const onChecked = () => {
-    // TODO: under-construction!
-  };
-
-  return (
-    <TodosView value={value} todosQuery={findAllTodos} onChecked={onChecked} />
-  );
+  return <TodosView todosQuery={findAllTodos} />;
 };
 
 export default Todos;

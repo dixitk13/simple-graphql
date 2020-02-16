@@ -1,27 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/react-hooks";
+import classNames from "classnames";
 
-import { remove, view, pending, done } from "../../shared";
+import { Remove, View, Pending, Done } from "../../shared";
 import MarkDown from "../../MarkDown";
+import { UpdateChecked } from "./todoItem.graphql";
 
-// import classNames from "classnames";
-/**
- *
- * // className={`todo-remove ${classNames({
- * //   "todo-complete": completed,
- * //   "todo-incomplete": !completed
- * // })}`}
- */
+export const TodoItemView = ({ id, lines, completed }) => {
+  const [updateTodo, { loading, error: mutationError }] = useMutation(
+    UpdateChecked
+  );
 
-export const TodoItemView = ({ id, lines, completed, onChecked }) => {
+  const onChecked = () => {
+    updateTodo({ variables: { updateInput: { id, completed: !completed } } });
+  };
+
+  if (mutationError) console.log("Error in Update");
+
   return (
     <div className="todo-item-container">
       <div
-        onChange={() => onChecked(id, completed)}
-        className="todo-status"
-        type="checkbox"
+        onClick={onChecked}
+        className={classNames("todo-status", { loading })}
       >
-        {completed ? done() : pending()}
+        {completed ? <Done /> : <Pending />}
       </div>
 
       <div className="todo-title">
@@ -29,9 +32,11 @@ export const TodoItemView = ({ id, lines, completed, onChecked }) => {
       </div>
       <div className="todo-actions">
         <Link to={`/todos/${id}`} className="view">
-          {view()}
+          <View />
         </Link>
-        <div className="remove">{remove()}</div>
+        <div className="remove">
+          <Remove />
+        </div>
       </div>
     </div>
   );

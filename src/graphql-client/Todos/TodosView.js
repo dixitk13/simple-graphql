@@ -6,18 +6,18 @@ import { Query } from "react-apollo";
 import "./todos.styles.scss";
 import { Spinner, Header } from "../shared";
 
-export const TodosView = ({ todosQuery, onChecked }) => {
+export const TodosView = ({ todosQuery }) => {
   return (
     <div className="todos-view-container">
       <Header text="MarkDown TO-DOs" />
       <div className="todos-list">
-        <TodosList onChecked={onChecked} todosQuery={todosQuery} />
+        <TodosList todosQuery={todosQuery} />
       </div>
     </div>
   );
 };
 
-const TodosList = ({ todosQuery, onChecked }) => {
+const TodosList = ({ todosQuery }) => {
   return (
     <Query query={todosQuery}>
       {({ loading, error, data }) => {
@@ -29,11 +29,7 @@ const TodosList = ({ todosQuery, onChecked }) => {
         return (
           <>
             {todos.map((todo, index) => (
-              <TodoItemView
-                key={`${todo.id}-${index}`}
-                onChecked={onChecked}
-                {...todo}
-              />
+              <TodoItemView key={`${todo.id}-${index}`} {...todo} />
             ))}
             <div className="todo-placeholder" />
           </>

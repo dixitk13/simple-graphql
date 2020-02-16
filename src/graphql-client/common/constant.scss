@@ -12,21 +12,6 @@ $g-extra-padding: 15px;
 
 $border-radius: 6px;
 
-.center-todo-header {
-  color: $black-85;
-  font-weight: 600;
-  font-size: $g-header-size;
-  margin-bottom: 30px;
-  align-self: center;
-}
-.todo-loading {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-  align-items: center;
-  justify-content: center;
-}
-
 @mixin truncate($value: 200px) {
   max-width: $value;
   white-space: nowrap;
@@ -43,6 +28,19 @@ $border-radius: 6px;
 
   &:active {
     transform: scale(0.95);
+  }
+}
+
+.loading {
+  animation: icon-bounce 0.5s infinite ease-in-out;
+}
+@keyframes icon-bounce {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
   }
 }
 

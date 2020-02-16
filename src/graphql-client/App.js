@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -25,29 +25,27 @@ const client = new ApolloClient({
   cache: cache
 });
 
-class App extends Component {
-  render() {
-    return (
-      <ApolloProvider client={client}>
-        <Router>
-          <div className="app-container">
-            <Switch>
-              <Redirect exact from="/" to="/todos" />
-              <Route exact path="/todos" component={TodosList} />
-              <Route exact path="/todos/:id" component={TodoDetail} />
-            </Switch>
-          </div>
-        </Router>
-      </ApolloProvider>
-    );
-  }
-}
+const App = () => {
+  return (
+    <ApolloProvider client={client}>
+      <Router>
+        <div className="app-container">
+          <Switch>
+            <Redirect exact from="/" to="/todos" />
+            <Route exact path="/todos" component={TodosList} />
+            <Route exact path="/todos/:id" component={TodoDetail} />
+          </Switch>
+        </div>
+      </Router>
+    </ApolloProvider>
+  );
+};
 const TodosList = () => {
   return (
-    <Fragment>
+    <>
       <Todos />
       <Box />
-    </Fragment>
+    </>
   );
 };
 
