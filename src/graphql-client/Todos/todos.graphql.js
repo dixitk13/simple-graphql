@@ -9,6 +9,7 @@ export const findAllTodos = gql`
         color
         text
       }
+      deleted
       completed
     }
   }

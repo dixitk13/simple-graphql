@@ -3,8 +3,8 @@ import React from "react";
 import { TodoItemView } from "./TodoItem";
 import { Query } from "react-apollo";
 
-import "./todos.styles.scss";
 import { Spinner, Header } from "../shared";
+import "./todos.styles.scss";
 
 export const TodosView = ({ todosQuery }) => {
   return (

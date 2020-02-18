@@ -1,9 +1,9 @@
 import React from "react";
-import MarkDownLines from "./MarkDownLines";
+import MarkDownView from "./MarkDownView";
 
 // TODO: stub
-const MarkDownView = ({ lines }) => {
-  return <MarkDownLines lines={lines} />;
+const MarkDown = ({ deleted, lines }) => {
+  return <MarkDownView lines={lines} deleted={deleted} />;
 };
 
-export default MarkDownView;
+export default MarkDown;

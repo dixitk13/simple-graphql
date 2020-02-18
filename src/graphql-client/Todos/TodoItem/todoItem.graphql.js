@@ -4,6 +4,7 @@ export const UpdateChecked = gql`
     updateTodo(todo: $updateInput) {
       id
       completed
+      deleted
     }
   }
 `;

@@ -7,6 +7,10 @@
 
   display: flex;
 
+  &.strike {
+    text-decoration: line-through;
+  }
+
   div {
     margin: 3px;
   }

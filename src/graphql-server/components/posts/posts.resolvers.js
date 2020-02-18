@@ -6,7 +6,6 @@ const POSTS = [
 export const resolvers = {
   Query: {
     getPost: ({ id }) => {
-      console.log(" id ", id);
       return POSTS.find(x => x.id === id);
     },
     getPosts: () => POSTS

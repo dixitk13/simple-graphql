@@ -3,6 +3,7 @@ export const typeDefs = `
     id: ID
     lines: [Lines]
     completed: Boolean
+    deleted: Boolean
   }
   
   enum LineType {
@@ -36,10 +37,10 @@ export const typeDefs = `
 
   input UpdateTodoInput {
     id: ID!
-    lines: [LinesInput]
     completed: Boolean
+    deleted: Boolean
   }
-
+  
   type Mutation {
     addTodo(todo: CreateTodoInput): Todo
     updateTodo(todo: UpdateTodoInput): Todo

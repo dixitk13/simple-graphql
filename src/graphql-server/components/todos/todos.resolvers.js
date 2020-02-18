@@ -36,7 +36,25 @@ const createNewTodo = todo => {
 
 /** TODO: need to improve this! */
 const updateTodo = (_, { todo }) => {
-  todos = todos.map(x => (x.id === todo.id ? { ...x, ...todo } : x));
+  let targetTodoIndex = todos.findIndex(x => x.id === todo.id);
+
+  if (targetTodoIndex === -1) {
+    console.log("Error!");
+    return myPromise(todo);
+  }
+
+  let targetTodo = todos.find((_, index) => index === targetTodoIndex);
+
+  todos = todos.filter((_, index) => index !== targetTodoIndex);
+
+  targetTodo = { ...targetTodo, ...todo };
+
+  if (todo.deleted || todo.completed) {
+    todos = [...todos, targetTodo];
+  } else {
+    todos = [targetTodo, ...todos];
+  }
+
   return myPromise(todo);
 };
 
