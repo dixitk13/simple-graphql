@@ -1,0 +1,43 @@
+@import "../common/constant.scss";
+
+.mark-down-lines-container {
+  // TODO: the width moves the container to next line
+  // update to have the input box, add button and markdown
+  // container in the same line
+
+  display: flex;
+
+  &.strike {
+    text-decoration: line-through;
+  }
+
+  div {
+    margin: 3px;
+  }
+
+  .line {
+    font-weight: 400;
+  }
+
+  .bold-line {
+    font-weight: 600;
+  }
+
+  .code-line {
+    display: block;
+  }
+
+  // TODO: colors
+  .RED {
+    color: red;
+  }
+  .YELLOW {
+    color: yellow;
+  }
+  .GREEN {
+    color: green;
+  }
+  .ORANGE {
+    color: orange;
+  }
+}

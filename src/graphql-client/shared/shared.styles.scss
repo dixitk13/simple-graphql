@@ -1,0 +1,27 @@
+@import "../common/constant.scss";
+
+$prefix: "shared";
+
+.#{$prefix}-back-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  justify-self: center;
+}
+
+.#{$prefix}-center-todo-header {
+  color: $black-85;
+  font-weight: 600;
+  font-size: $g-header-size;
+  margin-bottom: 30px;
+  align-self: center;
+}
+
+.#{$prefix}-todo-loading {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+}

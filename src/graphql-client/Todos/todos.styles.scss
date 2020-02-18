@@ -1,0 +1,63 @@
+@import "../common/constant.scss";
+
+.todos-view-container {
+  display: flex;
+  flex-direction: column;
+
+  .todos-list {
+    display: flex;
+    flex-flow: column nowrap;
+    overflow: scroll;
+    height: calc(100vh - 210px);
+    justify-content: center;
+
+    // .loading {
+    //   align-self: center;
+    // }
+
+    .todo-placeholder {
+      flex: 1 1 auto;
+    }
+
+    .todo-item-container {
+      display: flex;
+      align-items: baseline;
+
+      margin: 6px 9px;
+      padding: $g-low-padding;
+      border-radius: $border-radius;
+
+      color: $black-85;
+      background: rgba(0, 0, 0, 0.05);
+
+      .todo-title {
+        flex: 7 1 70%;
+        font-size: $g-font-size;
+      }
+      .todo-status {
+        flex: 1 1 auto;
+        display: flex;
+        cursor: pointer;
+        justify-content: center;
+      }
+
+      .todo-actions,
+      .todo-detail {
+        a {
+          text-decoration: none;
+        }
+        display: flex;
+        justify-content: space-around;
+        flex: 1 1 5%;
+
+        margin: 3px;
+        text-align: center;
+
+        .view,
+        .remove {
+          @include hover-state();
+        }
+      }
+    }
+  }
+}
