@@ -19,6 +19,7 @@ const Box = () => {
 
   const addTodo = event => {
     console.log("add todo ", event);
+    // todo make graphql query
   };
 
   return (

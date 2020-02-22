@@ -1,12 +1,14 @@
 import React from "react";
 import classNames from "classnames";
+
+import { LineType } from "../../constants";
 import "./markdown.styles.scss";
 
-const MarkDownView = ({ lines, deleted }) => {
-  console.log(">>: MarkDownLines -> deleted", deleted);
+const MarkDownView = ({ classes, lines, deleted }) => {
+  console.log(">>: MarkDownLines -> deleted", lines);
   return (
     <div
-      className={classNames("mark-down-lines-container", {
+      className={classNames(`${classes} mark-down-lines-container`, {
         strike: deleted
       })}
     >
@@ -20,11 +22,11 @@ const MarkDownView = ({ lines, deleted }) => {
 
 const RenderLineView = ({ type, ...rest }) => {
   switch (type) {
-    case "bold":
+    case LineType.BOLD:
       return <BoldLineView {...rest} />;
-    case "color":
+    case LineType.COLOR:
       return <ColorLineView {...rest} />;
-    case "code":
+    case LineType.CODE:
       return <CodeLineView {...rest} />;
     default:
       return <LineView {...rest} />;
