@@ -1,6 +1,8 @@
 export const LineType = {
   COLOR: "COLOR",
   BOLD: "BOLD",
+  ITALIC: "ITALIC",
+  STRIKE: "STRIKE",
   CODE: "CODE",
   NONE: "NONE"
 };

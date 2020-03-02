@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import Todos from "./Todos";
 import TodoDetail from "./TodoDetail";
-import Box from "./Box";
+import Editor from "./Editor";
 // import ProtectRoute from "./protectRoute";
 
 import { ApolloProvider } from "react-apollo";
@@ -44,7 +44,7 @@ const TodosList = () => {
   return (
     <>
       <Todos />
-      <Box />
+      <Editor />
     </>
   );
 };

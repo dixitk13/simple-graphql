@@ -9,6 +9,8 @@ export const typeDefs = `
   enum LineType {
     COLOR
     BOLD
+    ITALIC
+    STRIKE
     CODE
     NONE
   }

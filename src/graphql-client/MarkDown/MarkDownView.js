@@ -5,7 +5,6 @@ import { LineType } from "../../constants";
 import "./markdown.styles.scss";
 
 const MarkDownView = ({ classes, lines, deleted }) => {
-  console.log(">>: MarkDownLines -> deleted", lines);
   return (
     <div
       className={classNames(`${classes} mark-down-lines-container`, {
@@ -24,6 +23,10 @@ const RenderLineView = ({ type, ...rest }) => {
   switch (type) {
     case LineType.BOLD:
       return <BoldLineView {...rest} />;
+    case LineType.STRIKE:
+      return <StrikeLineView {...rest} />;
+    case LineType.ITALIC:
+      return <ItalicLineView {...rest} />;
     case LineType.COLOR:
       return <ColorLineView {...rest} />;
     case LineType.CODE:
@@ -31,6 +34,14 @@ const RenderLineView = ({ type, ...rest }) => {
     default:
       return <LineView {...rest} />;
   }
+};
+
+const StrikeLineView = ({ text }) => {
+  return <div className="strike-line">{text}</div>;
+};
+
+const ItalicLineView = ({ text }) => {
+  return <div className="italic-line">{text}</div>;
 };
 
 const LineView = ({ text }) => {

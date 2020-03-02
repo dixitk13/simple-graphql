@@ -1,17 +1,17 @@
 @import "../common/constant.scss";
-.box-preview-container {
+.editor-preview-container {
   padding: $g-low-padding;
   font-size: $g-font-size;
 
-  .box-lf-container {
+  .editor-lf-container {
     display: flex;
-    .box-left {
+    .editor-left {
       margin: 3px 6px;
       padding: $g-normal-padding;
       border-radius: $border-radius;
       flex: 5 1 auto;
     }
-    .box-right {
+    .editor-right {
       margin: 3px 6px;
       padding: $g-low-padding;
       border-radius: $border-radius;
@@ -19,13 +19,27 @@
     }
   }
 
+  .editor-controls {
+    display: flex;
+    margin: 0 $g-normal-margin;
+    button {
+      width: 100px;
+      border-radius: $border-radius;
+      margin: 0 $g-low-margin;
+      text-align: center;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
   .preview-box {
-    .box-left {
+    .editor-left {
       background: lighten(lightgray, 10);
     }
   }
 
-  .box-view-container {
+  .editor-view-container {
     .input-box {
       border: 0.5px solid lightblue;
       .text-box {
@@ -41,11 +55,11 @@
       border: 0.5px solid lightblue;
       &:hover {
         cursor: pointer;
-        background: rgba(32, 214, 47, 0.5);
+        background: lightskyblue;
       }
       &:active {
         cursor: pointer;
-        background: rgba(15, 28, 212, 0.322);
+        background: lightsteelblue;
       }
     }
   }
