@@ -2,6 +2,7 @@ import React from "react";
 import "./editor.styles.scss";
 
 import MarkDown from "../MarkDown";
+import _ from "lodash";
 
 const editorOptions = [
   { value: "BOLD", text: "Bold", element: "b" },
@@ -22,10 +23,6 @@ const EditorView = ({
 }) => {
   return (
     <div className="editor-preview-container">
-      <div className="editor-lf-container preview-box">
-        <MarkDown classes="editor-left" lines={lines} />
-        <div className="editor-right block" />
-      </div>
       <div className="editor-controls">
         {editorOptions.map(({ value, text, element }, index) => {
           const Wrapper = element || "div";
@@ -45,6 +42,7 @@ const EditorView = ({
       </div>
       <div className="editor-lf-container editor-view-container">
         <div className="editor-left input-box">
+          <MarkDown classes="editor-preview" lines={lines} />
           <input
             className="text-box"
             type="text"
@@ -57,6 +55,7 @@ const EditorView = ({
           type="button"
           className="editor-right add-button"
           value="Add"
+          disabled={_.isEmpty(lines)}
           onClick={addTodo}
         />
       </div>

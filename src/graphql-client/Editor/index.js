@@ -1,10 +1,15 @@
 import React, { useState } from "react";
+import { useMutation } from "react-apollo";
+
 import EditorView from "./EditorView";
+
+import { ADD_TODO } from "./editor.graphql";
+import { FIND_ALL_TODOS } from "../Todos/todos.graphql";
 
 const Editor = () => {
   const [lines, setLines] = useState([]);
   const [activeMode, setActiveMode] = useState("");
-
+  const [addTodo] = useMutation(ADD_TODO);
   const [newLine, setNewLine] = useState("");
 
   const updateCurrentLine = event => setNewLine(event.target.value);
@@ -16,19 +21,30 @@ const Editor = () => {
   };
 
   const mergeToLine = () => {
-    setLines([
-      ...lines,
-      {
-        type: activeMode,
-        text: newLine
-      }
-    ]);
+    let line = newLine.trim();
+
+    if (line) {
+      setLines([
+        ...lines,
+        {
+          type: activeMode || "NONE",
+          text: line
+        }
+      ]);
+    }
     setNewLine("");
   };
 
-  const addTodo = event => {
-    console.log("add todo ", event);
-    // todo make graphql query
+  const addTodoHandler = () => {
+    addTodo({
+      variables: {
+        todo: {
+          lines: [],
+          completed: false
+        }
+      },
+      refetchQueries: [{ query: FIND_ALL_TODOS }]
+    });
   };
 
   return (
@@ -39,7 +55,7 @@ const Editor = () => {
       newLine={newLine}
       onEditorBlur={onEditorBlur}
       updateCurrentLine={updateCurrentLine}
-      addTodo={addTodo}
+      addTodo={addTodoHandler}
     />
   );
 };

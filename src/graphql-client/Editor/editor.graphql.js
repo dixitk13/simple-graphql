@@ -1,15 +1,12 @@
 import gql from "graphql-tag";
 
-export const FIND_ALL_TODOS = gql`
-  query {
-    findAllTodos {
+export const ADD_TODO = gql`
+  mutation addTodo($todo: CreateTodoInput) {
+    addTodo(todo: $todo) {
       id
       lines {
         type
-        color
-        text
       }
-      deleted
       completed
     }
   }

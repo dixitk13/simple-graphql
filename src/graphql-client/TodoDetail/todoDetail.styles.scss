@@ -3,6 +3,9 @@
   display: flex;
   flex-direction: column;
 
+  .todo-detail-view {
+    display: flex;
+  }
   .back-btn {
     align-self: center;
     text-decoration: none;
