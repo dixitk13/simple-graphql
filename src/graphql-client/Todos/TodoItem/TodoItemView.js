@@ -1,31 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useMutation } from "@apollo/react-hooks";
 import classNames from "classnames";
 
 import { Remove, View, Pending, Done } from "../../shared";
 import MarkDown from "../../MarkDown";
 
-import { updateChecked } from "./todoItem.graphql";
-
-export const TodoItemView = ({ id, lines, completed, deleted }) => {
-  const [updateTodo, { loading, error: mutationError }] = useMutation(
-    updateChecked
-  );
-
-  const toggleCheckedHandler = () => {
-    updateTodo({
-      variables: { updateInput: { id, deleted, completed: !completed } }
-    });
-  };
-
-  const toggleDeletedHandler = () => {
-    updateTodo({
-      variables: { updateInput: { id, completed, deleted: !deleted } }
-    });
-  };
-
-  if (mutationError) console.log("Error in Update");
+export const TodoItemView = ({
+  toggleCheckedHandler,
+  toggleDeletedHandler,
+  loading,
+  error,
+  id,
+  lines,
+  completed,
+  deleted
+}) => {
+  if (error) console.log("Error in Update");
 
   return (
     <div className="todo-item-container">
