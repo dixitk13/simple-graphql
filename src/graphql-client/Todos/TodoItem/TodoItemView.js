@@ -6,11 +6,11 @@ import classNames from "classnames";
 import { Remove, View, Pending, Done } from "../../shared";
 import MarkDown from "../../MarkDown";
 
-import { UpdateChecked } from "./todoItem.graphql";
+import { updateChecked } from "./todoItem.graphql";
 
 export const TodoItemView = ({ id, lines, completed, deleted }) => {
   const [updateTodo, { loading, error: mutationError }] = useMutation(
-    UpdateChecked
+    updateChecked
   );
 
   const toggleCheckedHandler = () => {

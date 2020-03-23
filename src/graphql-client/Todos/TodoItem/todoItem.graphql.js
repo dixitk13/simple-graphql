@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-export const UpdateChecked = gql`
+export const updateChecked = gql`
   mutation updateTodo($updateInput: UpdateTodoInput!) {
     updateTodo(todo: $updateInput) {
       id

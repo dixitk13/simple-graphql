@@ -1,0 +1,72 @@
+@import "../common/constant.scss";
+.editor-preview-container {
+  padding: $g-low-padding;
+  font-size: $g-font-size;
+
+  .editor-preview {
+    background: none;
+    flex-shrink: 0;
+  }
+
+  .editor-lf-container {
+    display: flex;
+    .editor-left {
+      margin: 3px 6px;
+      padding: $g-low-padding;
+      border-radius: $border-radius;
+      flex: 5 1 auto;
+    }
+    .editor-right {
+      margin: 3px 6px;
+      padding: $g-low-padding;
+      border-radius: $border-radius;
+      flex: 1;
+    }
+  }
+
+  .editor-controls {
+    display: flex;
+    margin: 0 $g-normal-margin;
+    button {
+      width: 100px;
+      border-radius: $border-radius;
+      margin: 0 $g-low-margin;
+      text-align: center;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .preview-box {
+    .editor-left {
+      background: lighten(lightgray, 10);
+    }
+  }
+
+  .editor-view-container {
+    .input-box {
+      display: flex;
+      border: 0.5px solid lightblue;
+      .text-box {
+        font-size: $g-font-size;
+        border: none;
+        width: 100%;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    .add-button {
+      border: 0.5px solid lightblue;
+      &:hover {
+        cursor: pointer;
+        background: lightskyblue;
+      }
+      &:active {
+        cursor: pointer;
+        background: lightsteelblue;
+      }
+    }
+  }
+}

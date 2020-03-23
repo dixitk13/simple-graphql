@@ -2,30 +2,26 @@ import React from "react";
 import "./todoDetail.styles.scss";
 
 import { Link } from "react-router-dom";
-import { Query } from "react-apollo";
+import { useQuery } from "react-apollo";
 
 import MarkDownView from "../MarkDown";
 import { Spinner, Completed, Header, Back } from "../shared";
 
 const TodoDetailView = ({ id, todoDetailQuery }) => {
+  const { loading, error, data } = useQuery(todoDetailQuery, {
+    variables: { id }
+  });
+  if (error) console.log(error);
+  const todo = data && data.todo;
+
+  if (loading || !data || !data.todo) return <Spinner />;
   return (
     <div className="todoDetail-view-container">
-      <Query query={todoDetailQuery} variables={{ id }}>
-        {({ loading, error, data }) => {
-          if (error) console.log(error);
-          if (loading || !data || !data.todo) return <Spinner />;
-
-          const { todo } = data;
-          const { lines, completed } = todo;
-          return (
-            <>
-              <Header text="TODO Detail" />
-              <Completed flag={completed} />
-              <MarkDownView lines={lines} />
-            </>
-          );
-        }}
-      </Query>
+      <Header text="TODO Detail" />
+      <div className="todo-detail-view">
+        <Completed flag={todo.completed} />
+        <MarkDownView lines={todo.lines} />
+      </div>
       <Link className="back-btn" to={`/todos`}>
         <Back />
       </Link>

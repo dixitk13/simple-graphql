@@ -7,8 +7,13 @@
 
   display: flex;
 
-  &.strike {
+  &.strike,
+  .strike-line {
     text-decoration: line-through;
+  }
+
+  .italic-line {
+    font-style: oblique;
   }
 
   div {

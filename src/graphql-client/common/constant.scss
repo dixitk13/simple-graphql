@@ -10,6 +10,10 @@ $g-low-padding: 9px;
 $g-normal-padding: 12px;
 $g-extra-padding: 15px;
 
+$g-low-margin: 9px;
+$g-normal-margin: 12px;
+$g-extra-margin: 15px;
+
 $border-radius: 6px;
 
 @mixin truncate($value: 200px) {
