@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
 
-export const todoDetailQuery = gql`
+export const FIND_TODO_BY_ID = gql`
   query findTodo($id: ID!) {
     todo: findTodo(id: $id) {
       id

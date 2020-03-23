@@ -7,14 +7,16 @@ import { ADD_TODO } from "./editor.graphql";
 import { FIND_ALL_TODOS } from "../Todos/todos.graphql";
 
 const Editor = () => {
+  const [addTodo] = useMutation(ADD_TODO);
+
   const [lines, setLines] = useState([]);
   const [activeMode, setActiveMode] = useState("");
-  const [addTodo] = useMutation(ADD_TODO);
   const [newLine, setNewLine] = useState("");
 
   const updateCurrentLine = event => setNewLine(event.target.value);
 
   const onEditorBlur = () => mergeToLine();
+
   const updateMode = value => {
     setActiveMode(activeMode === value ? "" : value);
     mergeToLine();
@@ -39,7 +41,7 @@ const Editor = () => {
     addTodo({
       variables: {
         todo: {
-          lines: [],
+          lines,
           completed: false
         }
       },

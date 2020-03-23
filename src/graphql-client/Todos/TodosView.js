@@ -1,6 +1,6 @@
 import React from "react";
 
-import { TodoItemView } from "./TodoItem";
+import { TodoItem } from "./TodoItem";
 
 import { Spinner, Header } from "../shared";
 import "./todos.styles.scss";
@@ -22,7 +22,7 @@ const TodosList = ({ todos, loading, error, data }) => {
   return (
     <>
       {todos.map((todo, index) => (
-        <TodoItemView key={`${todo.id}-${index}`} {...todo} />
+        <TodoItem key={`${todo.id}-${index}`} {...todo} />
       ))}
       <div className="todo-placeholder" />
     </>
