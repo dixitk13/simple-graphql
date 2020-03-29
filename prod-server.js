@@ -3,7 +3,7 @@ import graphqlHTTP from "express-graphql";
 import express from "express";
 import cors from "cors";
 
-import { schema, resolvers } from "./root";
+import { schema, resolvers } from "./src/graphql-server/root";
 
 const app = express();
 
@@ -22,7 +22,7 @@ app.use(
 app.use(express.static("build"));
 
 app.get("*", (_, res) => {
-  res.sendFile(path.resolve(__dirname, "build", "index.html"));
+  res.sendFile(path.resolve("./", "build", "index.html"));
 });
 
 const port = process.env.PORT || 4000;

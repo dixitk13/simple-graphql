@@ -6,13 +6,16 @@
   "keywords": [],
   "license": "MIT",
   "type": "module",
-  "main": "src/index.js",
+  "main": "./prod-server.js",
   "scripts": {
-    "start": "npm-run-all -p build-css graphql-server start-js",
+    "start": "node --experimental-modules ./prod-server.js",
+    "dev-start": "npm-run-all -p build-css graphql-server start-js",
     "start-js": "react-scripts start",
     "graphql-server": "nodemon src/graphql-server/server.js --exec babel-node -e js",
     "server": "nodemon --watch src/graphql-server/server.js src/*",
     "test": "react-scripts test --env=jsdom",
+    "rs-build": "react-scripts build",
+    "build-prod": "npm-run-all build-css rs-build",
     "build-css": "node-sass src/ -o src/"
   },
   "dependencies": {
@@ -34,6 +37,7 @@
     "node-sass": "^4.9.3",
     "node.js": "^0.0.0",
     "npm-run-all": "^4.1.5",
+    "path": "^0.12.7",
     "prettier": "^1.19.1",
     "react": "^16.5.2",
     "react-apollo": "^3.1.3",
