@@ -1,0 +1,63 @@
+.loading {
+  animation: icon-bounce 0.5s infinite ease-in-out; }
+
+@keyframes icon-bounce {
+  0%,
+  100% {
+    transform: scale(0); }
+  50% {
+    transform: scale(1); } }
+
+.todos-view-container {
+  display: flex;
+  flex-direction: column; }
+  .todos-view-container .todos-list {
+    display: flex;
+    flex-flow: column nowrap;
+    overflow: scroll;
+    height: calc(100vh - 240px);
+    justify-content: center; }
+    .todos-view-container .todos-list .todo-placeholder {
+      flex: 1 1 auto; }
+    .todos-view-container .todos-list .todo-item-container {
+      display: flex;
+      align-items: baseline;
+      margin: 6px 9px;
+      padding: 9px;
+      border-radius: 6px;
+      color: rgba(0, 0, 0, 0.85);
+      background: rgba(0, 0, 0, 0.05); }
+      .todos-view-container .todos-list .todo-item-container .todo-title {
+        flex: 7 1 70%;
+        font-size: 21px; }
+      .todos-view-container .todos-list .todo-item-container .todo-status {
+        flex: 1 1 auto;
+        display: flex;
+        cursor: pointer;
+        justify-content: center; }
+      .todos-view-container .todos-list .todo-item-container .todo-actions,
+      .todos-view-container .todos-list .todo-item-container .todo-detail {
+        display: flex;
+        justify-content: space-around;
+        flex: 1 1 5%;
+        margin: 3px;
+        text-align: center; }
+        .todos-view-container .todos-list .todo-item-container .todo-actions a,
+        .todos-view-container .todos-list .todo-item-container .todo-detail a {
+          text-decoration: none; }
+        .todos-view-container .todos-list .todo-item-container .todo-actions .view,
+        .todos-view-container .todos-list .todo-item-container .todo-actions .remove,
+        .todos-view-container .todos-list .todo-item-container .todo-detail .view,
+        .todos-view-container .todos-list .todo-item-container .todo-detail .remove {
+          cursor: pointer;
+          transition: all 0.1s ease-in; }
+          .todos-view-container .todos-list .todo-item-container .todo-actions .view:hover,
+          .todos-view-container .todos-list .todo-item-container .todo-actions .remove:hover,
+          .todos-view-container .todos-list .todo-item-container .todo-detail .view:hover,
+          .todos-view-container .todos-list .todo-item-container .todo-detail .remove:hover {
+            transform: scale(1.05); }
+          .todos-view-container .todos-list .todo-item-container .todo-actions .view:active,
+          .todos-view-container .todos-list .todo-item-container .todo-actions .remove:active,
+          .todos-view-container .todos-list .todo-item-container .todo-detail .view:active,
+          .todos-view-container .todos-list .todo-item-container .todo-detail .remove:active {
+            transform: scale(0.95); }

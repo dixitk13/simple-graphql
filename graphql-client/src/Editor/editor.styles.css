@@ -1,0 +1,57 @@
+.loading {
+  animation: icon-bounce 0.5s infinite ease-in-out; }
+
+@keyframes icon-bounce {
+  0%,
+  100% {
+    transform: scale(0); }
+  50% {
+    transform: scale(1); } }
+
+.editor-preview-container {
+  padding: 9px;
+  font-size: 21px; }
+  .editor-preview-container .editor-preview {
+    background: none;
+    flex-shrink: 0; }
+  .editor-preview-container .editor-lf-container {
+    display: flex; }
+    .editor-preview-container .editor-lf-container .editor-left {
+      margin: 3px 6px;
+      padding: 9px;
+      border-radius: 6px;
+      flex: 5 1 auto; }
+    .editor-preview-container .editor-lf-container .editor-right {
+      margin: 3px 6px;
+      padding: 9px;
+      border-radius: 6px;
+      flex: 1; }
+  .editor-preview-container .editor-controls {
+    display: flex;
+    margin: 0 12px; }
+    .editor-preview-container .editor-controls button {
+      width: 100px;
+      border-radius: 6px;
+      margin: 0 9px;
+      text-align: center; }
+      .editor-preview-container .editor-controls button:first-child {
+        margin-left: 0; }
+  .editor-preview-container .preview-box .editor-left {
+    background: #ededed; }
+  .editor-preview-container .editor-view-container .input-box {
+    display: flex;
+    border: 0.5px solid lightblue; }
+    .editor-preview-container .editor-view-container .input-box .text-box {
+      font-size: 21px;
+      border: none;
+      width: 100%; }
+      .editor-preview-container .editor-view-container .input-box .text-box:focus {
+        outline: none; }
+  .editor-preview-container .editor-view-container .add-button {
+    border: 0.5px solid lightblue; }
+    .editor-preview-container .editor-view-container .add-button:hover {
+      cursor: pointer;
+      background: lightskyblue; }
+    .editor-preview-container .editor-view-container .add-button:active {
+      cursor: pointer;
+      background: lightsteelblue; }

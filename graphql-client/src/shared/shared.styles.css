@@ -1,0 +1,30 @@
+.loading {
+  animation: icon-bounce 0.5s infinite ease-in-out; }
+
+@keyframes icon-bounce {
+  0%,
+  100% {
+    transform: scale(0); }
+  50% {
+    transform: scale(1); } }
+
+.shared-back-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  justify-self: center; }
+
+.shared-center-todo-header {
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 600;
+  font-size: 36px;
+  margin-bottom: 30px;
+  align-self: center; }
+
+.shared-todo-loading {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center; }

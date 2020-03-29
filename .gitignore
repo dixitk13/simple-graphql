@@ -1,7 +1,9 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
+# IDE stuff
 node_modules/
 .idea/
+.vscode/
 
 # using node-sass/SCSS
 src/**/*.css
@@ -9,12 +11,15 @@ src/*.css
 
 # dependencies
 /node_modules
+/graphql-client/node_modules
+/graphql-server/node_modules
 
 # testing
 /coverage
 
 # production
 /build
+/graphql-client/build
 
 # misc
 .DS_Store

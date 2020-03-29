@@ -34,6 +34,7 @@ const App = () => {
             <Redirect exact from="/" to="/todos" />
             <Route exact path="/todos" component={TodosList} />
             <Route exact path="/todos/:id" component={TodoDetail} />
+            <Redirect from="*" to="/" />
           </Switch>
         </div>
       </Router>

@@ -1,0 +1,18 @@
+.loading {
+  animation: icon-bounce 0.5s infinite ease-in-out; }
+
+@keyframes icon-bounce {
+  0%,
+  100% {
+    transform: scale(0); }
+  50% {
+    transform: scale(1); } }
+
+.todoDetail-view-container {
+  display: flex;
+  flex-direction: column; }
+  .todoDetail-view-container .todo-detail-view {
+    display: flex; }
+  .todoDetail-view-container .back-btn {
+    align-self: center;
+    text-decoration: none; }

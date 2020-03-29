@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 
-import { LineType } from "../../constants";
+import { LineType } from "../constants";
 import "./markdown.styles.scss";
 
 const MarkDownView = ({ classes, lines, deleted }) => {

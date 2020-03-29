@@ -1,0 +1,33 @@
+.loading {
+  animation: icon-bounce 0.5s infinite ease-in-out; }
+
+@keyframes icon-bounce {
+  0%,
+  100% {
+    transform: scale(0); }
+  50% {
+    transform: scale(1); } }
+
+.mark-down-lines-container {
+  display: flex; }
+  .mark-down-lines-container.strike,
+  .mark-down-lines-container .strike-line {
+    text-decoration: line-through; }
+  .mark-down-lines-container .italic-line {
+    font-style: oblique; }
+  .mark-down-lines-container div {
+    margin: 3px; }
+  .mark-down-lines-container .line {
+    font-weight: 400; }
+  .mark-down-lines-container .bold-line {
+    font-weight: 600; }
+  .mark-down-lines-container .code-line {
+    display: block; }
+  .mark-down-lines-container .RED {
+    color: red; }
+  .mark-down-lines-container .YELLOW {
+    color: yellow; }
+  .mark-down-lines-container .GREEN {
+    color: green; }
+  .mark-down-lines-container .ORANGE {
+    color: orange; }

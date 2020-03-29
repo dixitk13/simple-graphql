@@ -1,9 +1,9 @@
-import path from "path";
+import * as path from "path";
 import graphqlHTTP from "express-graphql";
 import express from "express";
 import cors from "cors";
 
-import { schema, resolvers } from "./src/graphql-server/root";
+import { schema, resolvers } from "./root";
 
 const app = express();
 
@@ -15,14 +15,16 @@ app.use(
   graphqlHTTP({
     schema,
     rootValue: resolvers,
-    graphiql: true
+    graphiql: true,
   })
 );
 
-app.use(express.static("build"));
+app.use(express.static("graphql-client/build"));
 
 app.get("*", (_, res) => {
-  res.sendFile(path.resolve("./", "build", "index.html"));
+  res.sendFile(
+    path.resolve(__dirname, "../graphql-client", "build", "index.html")
+  );
 });
 
 const port = process.env.PORT || 4000;
