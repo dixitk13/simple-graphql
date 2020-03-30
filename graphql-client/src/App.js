@@ -13,14 +13,21 @@ import Editor from "./Editor";
 import { ApolloProvider } from "react-apollo";
 import { ApolloClient } from "apollo-boost";
 import { InMemoryCache } from "apollo-cache-inmemory";
-import { HttpLink } from "apollo-link-http";
+import { createHttpLink } from "apollo-link-http";
 
 import "./app.styles.scss";
 
 // Set up Cache
 const cache = new InMemoryCache();
+const url =
+  process.env.NODE_ENV === "development"
+    ? `http://localhost:${process.env.PORT || 4000}/graphql`
+    : `/graphql`;
 
 const client = new ApolloClient({
+  link: createHttpLink({
+    uri: url,
+  }),
   cache: cache,
 });
 
