@@ -4,8 +4,12 @@
   // TODO: the width moves the container to next line
   // update to have the input box, add button and markdown
   // container in the same line
-
+  flex-wrap: wrap;
   display: flex;
+
+  * {
+    flex-shrink: 0;
+  }
 
   &.strike,
   .strike-line {
