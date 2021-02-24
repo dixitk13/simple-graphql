@@ -1,7 +1,41 @@
-@import "./common/constant.scss";
+@import "./common/_constants.scss";
+@import "./common/_media.scss";
 .app-container {
-  display: flex;
-  flex-direction: column;
   padding: $g-extra-padding;
   height: 90vh;
+  justify-content: center;
+  display: flex;
+
+  .app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    @include media-large() {
+      width: 30rem;
+    }
+  }
+}
+
+button {
+  background-color: #f5f8fa;
+  color: #182026;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  box-shadow: $box-shadow-inset;
+
+  &:hover {
+    background-color: #ebf1f5;
+  }
+
+  &:active {
+    background-color: #d8e1e8;
+  }
+}
+
+a {
+  text-decoration: none;
+  box-shadow: $box-shadow-inset;
+  padding: 1px 3px 1px 7px;
+  border-radius: 3px;
 }

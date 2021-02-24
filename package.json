@@ -11,7 +11,8 @@
     "dev-start": "npm-run-all -p graphql-server hot-reload-client",
     "heroku-postbuild": "cd graphql-client && npm install && npm run build",
     "graphql-server": "nodemon src/server.js --exec babel-node -e js --watch src/*",
-    "hot-reload-client": "npm --prefix ./graphql-client/ run start"
+    "hot-reload-client": "npm --prefix ./graphql-client/ run start",
+    "preinstall": "npm --prefix ./graphql-client install"
   },
   "dependencies": {
     "axios": "^0.21.1",

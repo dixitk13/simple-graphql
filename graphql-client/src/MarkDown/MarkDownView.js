@@ -6,16 +6,15 @@ import "./markdown.styles.scss";
 
 const MarkDownView = ({ classes, lines, deleted }) => {
   return (
-    <div
+    <article
       className={classNames(`${classes} mark-down-lines-container`, {
-        strike: deleted
+        strike: deleted,
       })}
     >
-      {lines &&
-        lines.map((line, index) => (
-          <RenderLineView key={`line-${index}`} type={line.type} {...line} />
-        ))}
-    </div>
+      {lines?.map((line, index) => (
+        <RenderLineView key={`line-${index}`} type={line.type} {...line} />
+      ))}
+    </article>
   );
 };
 
@@ -37,31 +36,31 @@ const RenderLineView = ({ type, ...rest }) => {
 };
 
 const StrikeLineView = ({ text }) => {
-  return <div className="strike-line">{text}</div>;
+  return <p className="strike-line">{text}</p>;
 };
 
 const ItalicLineView = ({ text }) => {
-  return <div className="italic-line">{text}</div>;
+  return <p className="italic-line">{text}</p>;
 };
 
 const LineView = ({ text }) => {
-  return <div className="line">{text}</div>;
+  return <p className="line">{text}</p>;
 };
 
 const CodeLineView = ({ text }) => {
   return (
-    <div className="code-line">
+    <p className="code-line">
       <code>{text}</code>
-    </div>
+    </p>
   );
 };
 
 const BoldLineView = ({ text }) => {
-  return <div className="bold-line">{text}</div>;
+  return <p className="bold-line">{text}</p>;
 };
 
 const ColorLineView = ({ text, color }) => {
-  return <div style={{ color }}>{text}</div>;
+  return <p style={{ color }}>{text}</p>;
 };
 
 export default MarkDownView;

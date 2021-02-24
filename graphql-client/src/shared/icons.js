@@ -4,8 +4,8 @@ import "./shared.styles.scss";
 // TODO make these JSX like Components
 export const Remove = () => "❌";
 export const View = () => "📂";
-export const Done = () => "✅";
-export const Pending = () => "⭕";
+export const Done = () => "💧";
+export const Pending = () => "🔥";
 export const LeftIcon = () => "◀️";
 
 export const Back = () => {
@@ -18,11 +18,26 @@ export const Back = () => {
 };
 // export const completedIcon = status => (status ? done() : pending());
 
-export const Completed = ({ flag }) => (flag ? <Done /> : <Pending />);
+export const Completed = ({ flag, showText }) => {
+  if (!showText) return flag ? <Done /> : <Pending />;
+  if (flag)
+    return (
+      <p>
+        <Done />
+        Status: Compeleted!
+      </p>
+    );
+  return (
+    <p>
+      <Pending />
+      Status: Pending...
+    </p>
+  );
+};
 
 export const Spinner = ({ text }) => (
   <div className="shared-todo-loading">{text || "Loading..."}</div>
 );
 export const Header = ({ text }) => (
-  <div className="shared-center-todo-header">{text}</div>
+  <h1 className="shared-center-todo-header">{text}</h1>
 );
