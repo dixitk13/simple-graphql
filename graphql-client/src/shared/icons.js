@@ -2,11 +2,31 @@ import React from "react";
 import "./shared.styles.scss";
 
 // TODO make these JSX like Components
-export const Remove = () => "❌";
-export const View = () => "📂";
-export const Done = () => "💧";
-export const Pending = () => "🔥";
-export const LeftIcon = () => "◀️";
+export const Remove = () => (
+  <span role="img" aria-label="remove">
+    ❌
+  </span>
+);
+export const View = () => (
+  <span role="img" aria-label="view">
+    📂
+  </span>
+);
+export const Done = () => (
+  <span role="img" aria-label="compelete">
+    💧
+  </span>
+);
+export const Pending = () => (
+  <span role="img" aria-label="pending">
+    🔥
+  </span>
+);
+export const LeftIcon = () => (
+  <span role="img" aria-label="back">
+    ◀️
+  </span>
+);
 
 export const Back = () => {
   return (

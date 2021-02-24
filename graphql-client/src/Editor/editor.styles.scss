@@ -1,6 +1,6 @@
 @import "../common/_constants.scss";
 .editor-preview-container {
-  padding: $g-low-padding;
+  padding: $g-superlow-padding;
   font-size: $g-font-size;
   margin-top: auto;
 
@@ -11,9 +11,10 @@
 
   .editor-lf-container {
     display: flex;
+    margin-top: 3px;
     .editor-left {
       margin: 3px 6px;
-      padding: $g-low-padding;
+      padding: $g-superlow-padding;
       border-radius: $border-radius;
       flex: 5 1 auto;
     }
@@ -70,7 +71,8 @@
   .editor-view-container {
     .input-box {
       display: flex;
-      border: 0.5px solid lightblue;
+      // border: 0.5px solid $box-shadow-inset;
+      box-shadow: $box-shadow-inset;
       .text-box {
         font-size: $g-font-size;
         border: none;
@@ -81,7 +83,7 @@
       }
     }
     .add-button {
-      border: 0.5px solid lightblue;
+      box-shadow: $box-shadow-inset;
       &:hover {
         cursor: pointer;
         background: lightskyblue;

@@ -8,8 +8,24 @@ const editorOptions = [
   { value: "BOLD", text: "B", element: <b>B</b> },
   { value: "STRIKE", text: "Strike", element: <strike>s</strike> },
   { value: "ITALIC", text: "Italic", element: <i>i</i> },
-  { value: "COLOR", text: "Color", element: <>🌈</> },
-  { value: "CODE", text: "Code", element: <code>📟</code> },
+  {
+    value: "COLOR",
+    text: "Color",
+    element: (
+      <span role="img" aria-label="colors">
+        🌈
+      </span>
+    ),
+  },
+  {
+    value: "CODE",
+    text: "Code",
+    element: (
+      <span role="img" aria-label="code">
+        📟
+      </span>
+    ),
+  },
 ];
 
 const colorOptions = [
@@ -87,13 +103,13 @@ const EditorView = ({
             onChange={updateCurrentLine}
           />
         </div>
-        <input
-          type="button"
+        <button
           className="editor-right add-button"
-          value="Add"
           disabled={_.isEmpty(lines)}
           onClick={addTodo}
-        />
+        >
+          Add
+        </button>
       </div>
     </div>
   );

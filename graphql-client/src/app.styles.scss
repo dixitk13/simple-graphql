@@ -1,15 +1,15 @@
 @import "./common/_constants.scss";
 @import "./common/_media.scss";
 .app-container {
-  padding: $g-extra-padding;
+  padding: $g-superlow-padding;
   height: 90vh;
   justify-content: center;
   display: flex;
-
   .app {
     display: flex;
     flex-direction: column;
     height: 100%;
+    width: 100%;
     @include media-large() {
       width: 30rem;
     }
