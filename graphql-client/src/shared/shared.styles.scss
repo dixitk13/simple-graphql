@@ -1,4 +1,4 @@
-@import "../common/constants.scss";
+@import "../common/_constants.scss";
 
 $prefix: "shared";
 
@@ -20,8 +20,7 @@ $prefix: "shared";
 
 .#{$prefix}-todo-loading {
   display: flex;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
   align-items: center;
   justify-content: center;
 }

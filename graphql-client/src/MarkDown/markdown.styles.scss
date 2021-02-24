@@ -1,4 +1,4 @@
-@import "../common/constants.scss";
+@import "../common/_constants.scss";
 
 .mark-down-lines-container {
   // TODO: the width moves the container to next line
@@ -37,17 +37,16 @@
     display: block;
   }
 
-  // TODO: colors
   .RED {
-    color: rebeccapurple;
+    color: $RED;
   }
   .BLUE {
-    color: #2196f3;
+    color: $BLUE;
   }
   .GREEN {
-    color: lightseagreen;
+    color: $GREEN;
   }
   .ORANGE {
-    color: lightcoral;
+    color: $ORANGE;
   }
 }

@@ -4,8 +4,8 @@ import "./shared.styles.scss";
 // TODO make these JSX like Components
 export const Remove = () => "❌";
 export const View = () => "📂";
-export const Done = () => "✅";
-export const Pending = () => "⭕";
+export const Done = () => "💧";
+export const Pending = () => "🔥";
 export const LeftIcon = () => "◀️";
 
 export const Back = () => {

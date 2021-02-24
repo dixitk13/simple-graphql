@@ -1,14 +1,14 @@
-@import "../common/constants.scss";
+@import "../common/_constants.scss";
 
 .todos-view-container {
   display: flex;
   flex-direction: column;
-
+  overflow-y: scroll;
   .todos-list {
     display: flex;
     flex-flow: column nowrap;
     overflow: scroll;
-    height: calc(100vh - 200px); // wtf?
+    // height: calc(100vh - 200px); // wtf?
 
     .todo-placeholder {
       flex: 1 1 auto;
