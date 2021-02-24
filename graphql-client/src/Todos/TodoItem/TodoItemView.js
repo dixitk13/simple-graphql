@@ -20,12 +20,12 @@ export const TodoItemView = ({
   return (
     <div className="todo-item-container">
       <div className="todo-l1">
-        <div
+        <button
           onClick={toggleCheckedHandler}
           className={classNames("todo-status", { loading })}
         >
           {completed ? <Done /> : <Pending />}
-        </div>
+        </button>
 
         <div className="todo-actions">
           <Link to={`/todos/${id}`} className="view">
