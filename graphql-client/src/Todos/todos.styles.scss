@@ -1,4 +1,4 @@
-@import "../common/constant.scss";
+@import "../common/constants.scss";
 
 .todos-view-container {
   display: flex;
@@ -9,11 +9,6 @@
     flex-flow: column nowrap;
     overflow: scroll;
     height: calc(100vh - 200px); // wtf?
-    // justify-content: center;
-
-    // .loading {
-    //   align-self: center;
-    // }
 
     .todo-placeholder {
       flex: 1 1 auto;
@@ -21,7 +16,7 @@
 
     .todo-item-container {
       display: flex;
-      align-items: baseline;
+      flex-direction: column;
 
       margin: 6px 9px;
       padding: $g-low-padding;
@@ -30,33 +25,37 @@
       color: $black-85;
       background: rgba(0, 0, 0, 0.05);
 
-      .todo-title {
-        flex: 7 1 70%;
-        font-size: $g-font-size;
-      }
-      .todo-status {
-        flex: 1 1 auto;
+      .todo-l1 {
         display: flex;
-        cursor: pointer;
-        justify-content: center;
+        justify-content: space-between;
+        .todo-status {
+          flex: 1 1 auto;
+          display: flex;
+          cursor: pointer;
+          margin-left: 5px;
+          align-items: center;
+        }
+
+        .todo-actions,
+        .todo-detail {
+          display: flex;
+          flex: 1 1 5%;
+          justify-content: flex-end;
+          margin: 3px;
+          text-align: center;
+
+          button {
+            margin-left: 5px;
+            padding: 1px 4px 1px 6px;
+          }
+          .view,
+          .remove {
+            @include hover-state();
+          }
+        }
       }
-
-      .todo-actions,
-      .todo-detail {
-        a {
-          text-decoration: none;
-        }
-        display: flex;
-        justify-content: space-around;
-        flex: 1 1 5%;
-
-        margin: 3px;
-        text-align: center;
-
-        .view,
-        .remove {
-          @include hover-state();
-        }
+      .todo-l2 {
+        margin-top: 6px;
       }
     }
   }

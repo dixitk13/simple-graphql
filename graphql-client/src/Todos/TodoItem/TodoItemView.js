@@ -13,29 +13,32 @@ export const TodoItemView = ({
   id,
   lines,
   completed,
-  deleted
+  deleted,
 }) => {
   if (error) console.log("Error in Update");
 
   return (
     <div className="todo-item-container">
-      <div
-        onClick={toggleCheckedHandler}
-        className={classNames("todo-status", { loading })}
-      >
-        {completed ? <Done /> : <Pending />}
+      <div className="todo-l1">
+        <div
+          onClick={toggleCheckedHandler}
+          className={classNames("todo-status", { loading })}
+        >
+          {completed ? <Done /> : <Pending />}
+        </div>
+
+        <div className="todo-actions">
+          <Link to={`/todos/${id}`} className="view">
+            <View />
+          </Link>
+          <button className="remove" onClick={toggleDeletedHandler}>
+            <Remove />
+          </button>
+        </div>
       </div>
 
-      <div className="todo-title">
+      <div className="todo-l2">
         <MarkDown deleted={deleted} lines={lines} />
-      </div>
-      <div className="todo-actions">
-        <Link to={`/todos/${id}`} className="view">
-          <View />
-        </Link>
-        <div className="remove" onClick={toggleDeletedHandler}>
-          <Remove />
-        </div>
       </div>
     </div>
   );

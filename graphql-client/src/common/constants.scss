@@ -15,6 +15,7 @@ $g-normal-margin: 12px;
 $g-extra-margin: 15px;
 
 $border-radius: 6px;
+$box-shadow-inset: inset 0 0 0 1px #a5a7a8, inset 0 -1px 0 #6e7275;
 
 @mixin truncate($value: 200px) {
   max-width: $value;

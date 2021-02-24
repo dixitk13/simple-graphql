@@ -17,8 +17,8 @@ const TodoDetailView = ({ todo, error, loading }) => {
   return (
     <div className="todoDetail-view-container">
       <Header text="TODO Detail" />
+      <Completed showText flag={completed} />
       <div className="todo-detail-view">
-        <Completed flag={completed} />
         <MarkDownView lines={lines} />
       </div>
       <Link className="back-btn" to={`/todos`}>

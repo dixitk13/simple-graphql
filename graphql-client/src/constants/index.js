@@ -4,12 +4,12 @@ export const LineType = {
   ITALIC: "ITALIC",
   STRIKE: "STRIKE",
   CODE: "CODE",
-  NONE: "NONE"
+  NONE: "NONE",
 };
 
 export const Colors = {
   RED: "RED",
-  YELLOW: "YELLOW",
+  BLUE: "BLUE",
   GREEN: "GREEN",
-  ORANGE: "ORANGE"
+  ORANGE: "ORANGE",
 };
